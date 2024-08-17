@@ -1,0 +1,48 @@
+using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
+using TMPro;
+using UnityEngine;
+
+public class DamageText : MonoBehaviour
+{
+    private TextMeshPro _text;
+
+    void Awake()
+    {
+        _text = transform.Find("Text").GetComponent<TextMeshPro>();
+    }
+
+    // Update is called once per frame
+    void Update() { }
+
+    public void SetDamage(int damage)
+    {
+        _text.text = damage.ToString();
+    }
+
+    private void Init(int value)
+    {
+        this.SetDamage(value);
+
+        transform.DOLocalJump(
+            transform.localPosition,
+            1.0f, // jump power
+            1, // num jumps
+            0.5f // duration
+        );
+    }
+
+
+    public DamageText Spawn(Transform parent, Vector2 position, int value, float duration = 1.0f)
+    {
+        var damageText = Instantiate(this, parent);
+        damageText.transform.localPosition = position;
+
+        damageText.Init(value);
+
+        Destroy(damageText.gameObject, duration);
+
+        return damageText;
+    }
+}
