@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     private Vector2 moveInput;
     private Rigidbody2D rb;
-    public Animator legAnim;
 
     public List<Limb> limbs = new List<Limb>();
     static Player _instance;
@@ -54,35 +53,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void Move(Vector2 velocity, float rotation)
     {
-        Vector2 v = context.ReadValue<Vector2>();
-        Debug.Log(v);
-
-        moveInput.x = v.x;
-        moveInput.y = v.y;
-
-        moveInput.Normalize();
-
-        rb.velocity = moveInput * moveSpeed;
-
-        if (context.started)
-        {
-            legAnim.SetBool("isMoving", true);
-        }
-        else if (context.canceled)
-        {
-            legAnim.SetBool("isMoving", false);
-        }
-
-        
+        rb.velocity = velocity;
+        rb.rotation = rotation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+        
     }
 
     public void Collide(GameObject collisionObject)
