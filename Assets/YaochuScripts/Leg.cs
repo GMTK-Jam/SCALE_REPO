@@ -54,7 +54,6 @@ public class Leg : Limb
             currAngle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
             if (moveInput.x < 0)
             {
-                Debug.Log("flip");
                 flipAnchor.localScale = new Vector3(defaultScale.x, -defaultScale.y, defaultScale.z);
             }
             else
@@ -117,5 +116,10 @@ public class Leg : Limb
     public void LegIsExtending()
     {
         isPushing = false;
+    }
+
+    public override void LevelUp()
+    {
+        throw new System.NotImplementedException();
     }
 }
