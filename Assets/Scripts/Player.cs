@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     public float moveSpeed;
     private Vector2 moveInput;
     private Rigidbody2D rb;
+    public Animator legAnim;
 
     public List<Limb> limbs = new List<Limb>();
     static Player _instance;
     private int healthInt = 100;
+    private int scaleInt = 0;
     private int xpInt = 0;
+    public Slider healthSlider;
+    public Slider scaleSlider;
+    private int currentLevel = 1;
 
     [SerializeField]
     private float _damageCooldown = 2.0f; // Cooldown time in seconds
@@ -21,6 +28,9 @@ public class Player : MonoBehaviour
     private Dictionary<GameObject, float> _lastDamageTimeByEnemy = new Dictionary<GameObject, float>();
 
     public TextMeshProUGUI uiText;
+    public float[] upgradeScales;
+    public GameObject upgradeScreen;
+    public TextMeshProUGUI levelText;
 
     public static Player Instance
     {
@@ -38,7 +48,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        uiText.text = ("Health:" + healthInt.ToString() + " XP:" + xpInt.ToString());
 
         foreach (Transform child in transform)
         {
@@ -53,12 +62,30 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveInput.x = Input.GetAxisRaw("Horizontal");
-        moveInput.y = Input.GetAxisRaw("Vertical");
+        float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+        rb.rotation = angle;
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        Vector2 v = context.ReadValue<Vector2>();
+        Debug.Log(v);
+
+        moveInput.x = v.x;
+        moveInput.y = v.y;
 
         moveInput.Normalize();
 
         rb.velocity = moveInput * moveSpeed;
+
+        if (context.started)
+        {
+            legAnim.SetBool("isMoving", true);
+        }
+        else if (context.canceled)
+        {
+            legAnim.SetBool("isMoving", false);
+        }
     }
 
     public void Collide(GameObject collisionObject)
@@ -91,12 +118,48 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         healthInt -= damageTaken;
-        uiText.text = ("Health:" + healthInt.ToString() + " XP:" + xpInt.ToString());
+        healthSlider.value = healthInt / 100f;
+        uiText.text = $"Health: {healthInt} XP: {xpInt}";
+    }
+
+    public void AddScale(int scaleGained)
+    {
+        scaleInt += scaleGained;
+
+        if (currentLevel >= 2)
+        {
+            scaleSlider.value = scaleInt - upgradeScales[currentLevel - 2];
+            scaleSlider.maxValue = upgradeScales[currentLevel - 1] - upgradeScales[currentLevel - 2];
+        }
+        else
+        {
+            scaleSlider.value = scaleInt;
+            scaleSlider.maxValue = upgradeScales[0];
+        }
+
+        if (scaleInt > upgradeScales[currentLevel - 1])
+        {
+            UpLevel();
+        }
     }
 
     public void AddXp(int xpGained)
     {
         xpInt += xpGained;
-        uiText.text = ("Health:" + healthInt.ToString() + " XP:" + xpInt.ToString());
+        uiText.text = $"Health: {healthInt} XP: {xpInt}";
+    }
+
+    public void UpLevel()
+    {
+        currentLevel += 1;
+        upgradeScreen.SetActive(true);
+        Time.timeScale = 0.05f;
+        levelText.text = "LV" + currentLevel.ToString();
+    }
+
+    public void Button()
+    {
+        upgradeScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

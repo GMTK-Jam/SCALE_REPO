@@ -50,7 +50,7 @@ public class XpDrop : MonoBehaviour
         if (other.gameObject.name == "PlayerHitbox")
         {
             var player = other.transform.parent.gameObject.GetComponent<Player>();
-            player.AddXp(_xp);
+            player.AddScale(_xp);
 
             Destroy(gameObject);
         }
