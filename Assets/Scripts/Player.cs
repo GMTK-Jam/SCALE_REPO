@@ -16,14 +16,14 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        foreach (Transform child in transform)
+/*        foreach (Transform child in transform)
         {
             Limb limb;
             if (TryGetComponent<Limb>(out limb))
             {
                 limbs.Add(limb);
             }
-        }
+        }*/
     }
 
     // Update is called once per frame
