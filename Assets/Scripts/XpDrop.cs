@@ -47,7 +47,9 @@ public class XpDrop : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "PlayerHitbox")
+
+        Debug.Log("triggeredname:" + other.gameObject.name);
+        if (other.gameObject.name == "Hitbox")
         {
             var player = other.transform.parent.gameObject.GetComponent<Player>();
             player.AddScale(_xp);
