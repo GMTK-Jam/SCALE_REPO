@@ -103,12 +103,12 @@ MonoBehaviour:
   hitpoints: 10
   _scoreValue: 10
   _xpValue: 10
-  _speed: 2
+  _speed: 3
   _damageTextPrefab: {fileID: 3046976478099630124, guid: a938611794e0d084e85acadb9cb335fe, type: 3}
   _xpDropPrefab: {fileID: 4537481635261412375, guid: 36a809e705bd6e948af95fb2e83a3465, type: 3}
   _deathAnimDuration: 0.5
   _damageCooldown: 2
-  _separationDistance: 1
+  _separationDistance: 5
 --- !u!50 &180460991626688436
 Rigidbody2D:
   serializedVersion: 4

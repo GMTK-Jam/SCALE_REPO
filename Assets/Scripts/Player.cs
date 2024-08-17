@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
     public float[] upgradeScales;
     public GameObject upgradeScreen;
     public TextMeshProUGUI levelText;
+    public CinemachineVirtualCamera cineCamera;
 
     public static Player Instance
     {
@@ -161,5 +163,24 @@ public class Player : MonoBehaviour
     {
         upgradeScreen.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void VisionButton()
+    {
+        upgradeScreen.SetActive(false);
+        Time.timeScale = 1f;
+        StartCoroutine(ChangeFOV(cineCamera, 40f, 0.5f));
+    }
+
+    IEnumerator ChangeFOV(CinemachineVirtualCamera cam, float endFOV, float duration)
+    {
+        float startFOV = cam.m_Lens.OrthographicSize;
+        float time = 0;
+        while (time < duration)
+        {
+            cam.m_Lens.OrthographicSize = Mathf.Lerp(startFOV, endFOV, time / duration);
+            yield return null;
+            time += Time.deltaTime;
+        }
     }
 }

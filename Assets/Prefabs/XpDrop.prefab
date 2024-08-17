@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66957ace1a497b14cab4927119b38467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectPlayerDistance: 3
-  _moveSpeed: 5
+  _detectPlayerDistance: 9
+  _moveSpeed: 8
 --- !u!58 &7278843099620892698
 CircleCollider2D:
   m_ObjectHideFlags: 0
