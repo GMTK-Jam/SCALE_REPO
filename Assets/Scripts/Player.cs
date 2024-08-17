@@ -18,8 +18,11 @@ public class Player : MonoBehaviour
     private int scaleInt = 0;
     private int xpInt = 0;
     public Slider healthSlider;
+<<<<<<< HEAD
     public Slider scaleSlider;
     private int currentLevel = 1;
+=======
+>>>>>>> e331f931d3184934aa74c91dba4678f8f7b09bb9
 
     [SerializeField]
     private float _damageCooldown = 2.0f; // Cooldown time in seconds
@@ -48,6 +51,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+<<<<<<< HEAD
+=======
+        //uiText.text = ("Health:" + healthInt.ToString() + " XP:" + xpInt.ToString());
+>>>>>>> e331f931d3184934aa74c91dba4678f8f7b09bb9
 
         foreach (Transform child in transform)
         {
@@ -59,15 +66,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnMove(InputAction.CallbackContext context)
     {
+<<<<<<< HEAD
         float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
+=======
+>>>>>>> e331f931d3184934aa74c91dba4678f8f7b09bb9
         Vector2 v = context.ReadValue<Vector2>();
         Debug.Log(v);
 
@@ -86,6 +95,18 @@ public class Player : MonoBehaviour
         {
             legAnim.SetBool("isMoving", false);
         }
+<<<<<<< HEAD
+=======
+
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+        rb.rotation = angle;
+>>>>>>> e331f931d3184934aa74c91dba4678f8f7b09bb9
     }
 
     public void Collide(GameObject collisionObject)
@@ -118,6 +139,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         healthInt -= damageTaken;
+<<<<<<< HEAD
         healthSlider.value = healthInt / 100f;
         uiText.text = $"Health: {healthInt} XP: {xpInt}";
     }
@@ -141,6 +163,10 @@ public class Player : MonoBehaviour
         {
             UpLevel();
         }
+=======
+        uiText.text = ("Health:" + healthInt.ToString() + " XP:" + xpInt.ToString());
+        healthSlider.value = healthInt / 100f;
+>>>>>>> e331f931d3184934aa74c91dba4678f8f7b09bb9
     }
 
     public void AddXp(int xpGained)
