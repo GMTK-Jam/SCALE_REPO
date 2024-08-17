@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
     protected void Update()
     {
         // move towards the player character
-        GameObject player = GameObject.Find("PLAYER_MAIN");
+        GameObject player = Player.Instance.gameObject;
         if (player != null)
         {
             var direction = DetermineDirection(player);
@@ -94,7 +94,7 @@ public class Enemy : MonoBehaviour
         if (Time.time - _lastDamageTime >= _damageCooldown)
         {
             Debug.Log(collision.gameObject.transform.name);
-            if (collision.gameObject.transform.name == "PLAYER_MAIN")
+            if (collision.gameObject.GetComponent<Player>())
             {
                 var player = collision.gameObject.GetComponent<Player>();
                 DamagePlayer(player);

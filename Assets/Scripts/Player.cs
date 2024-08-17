@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -14,8 +15,11 @@ public class Player : MonoBehaviour
     public List<Limb> limbs = new List<Limb>();
     static Player _instance;
     private int healthInt = 100;
+    private int scaleInt = 0;
     private int xpInt = 0;
     public Slider healthSlider;
+    public Slider scaleSlider;
+    private int currentLevel = 1;
 
     [SerializeField]
     private float _damageCooldown = 2.0f; // Cooldown time in seconds
@@ -24,6 +28,10 @@ public class Player : MonoBehaviour
     private Dictionary<GameObject, float> _lastDamageTimeByEnemy = new Dictionary<GameObject, float>();
 
     public TextMeshProUGUI uiText;
+    public float[] upgradeScales;
+    public GameObject upgradeScreen;
+    public TextMeshProUGUI levelText;
+    public CinemachineVirtualCamera cineCamera;
 
     public static Player Instance
     {
@@ -41,7 +49,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //uiText.text = ("Health:" + healthInt.ToString() + " XP:" + xpInt.ToString());
 
         foreach (Transform child in transform)
         {
@@ -95,13 +102,67 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         healthInt -= damageTaken;
-        uiText.text = ("Health:" + healthInt.ToString() + " XP:" + xpInt.ToString());
         healthSlider.value = healthInt / 100f;
+        uiText.text = $"Health: {healthInt} XP: {xpInt}";
+    }
+
+    public void AddScale(int scaleGained)
+    {
+        scaleInt += scaleGained;
+
+        if (currentLevel >= 2)
+        {
+            scaleSlider.value = scaleInt - upgradeScales[currentLevel - 2];
+            scaleSlider.maxValue = upgradeScales[currentLevel - 1] - upgradeScales[currentLevel - 2];
+        }
+        else
+        {
+            scaleSlider.value = scaleInt;
+            scaleSlider.maxValue = upgradeScales[0];
+        }
+
+        if (scaleInt > upgradeScales[currentLevel - 1])
+        {
+            UpLevel();
+        }
     }
 
     public void AddXp(int xpGained)
     {
         xpInt += xpGained;
-        uiText.text = ("Health:" + healthInt.ToString() + " XP:" + xpInt.ToString());
+        uiText.text = $"Health: {healthInt} XP: {xpInt}";
+    }
+
+    public void UpLevel()
+    {
+        currentLevel += 1;
+        upgradeScreen.SetActive(true);
+        Time.timeScale = 0.05f;
+        levelText.text = "LV" + currentLevel.ToString();
+    }
+
+    public void Button()
+    {
+        upgradeScreen.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void VisionButton()
+    {
+        upgradeScreen.SetActive(false);
+        Time.timeScale = 1f;
+        StartCoroutine(ChangeFOV(cineCamera, 40f, 0.5f));
+    }
+
+    IEnumerator ChangeFOV(CinemachineVirtualCamera cam, float endFOV, float duration)
+    {
+        float startFOV = cam.m_Lens.OrthographicSize;
+        float time = 0;
+        while (time < duration)
+        {
+            cam.m_Lens.OrthographicSize = Mathf.Lerp(startFOV, endFOV, time / duration);
+            yield return null;
+            time += Time.deltaTime;
+        }
     }
 }
