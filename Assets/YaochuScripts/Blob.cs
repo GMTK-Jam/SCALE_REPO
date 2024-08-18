@@ -13,9 +13,14 @@ public class Blob : MonoBehaviour
     Rigidbody2D rb;
     float scalar = 1.1f;*/
 
+    [Tooltip("The point from which the blob should grow out of, usually in the same hierarchy level as the blobs, defining a localPosition")]
     public Transform spawnPoint;
     private Vector3 targetPos;
+
+    [Tooltip("Set to true if it should not be there when game starts")]
     public bool dormant = true;
+
+    [Tooltip("How long to wait after growing one blob before growing the next blob in the level up animation, which grows a lot of cells sequentially")]
     [Range(0.1f, 5f)] public float growWaitTime;
     [Range(0.1f, 5f)] public float growTime;
 
