@@ -237,6 +237,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 0
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &19930829
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +439,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 0
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &74721165
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +725,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 0
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &127509308
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +843,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &158256955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1278,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &336576446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,6 +1564,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &441767786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,6 +1736,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1828,7 @@ Camera:
   far clip plane: 1000
   field of view: 30.00002
   orthographic: 1
-  orthographic size: 50
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2469,6 +2497,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &726786000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,6 +2783,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &931138731
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,6 +2901,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &956388754
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,6 +3103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &1132355057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3297,6 +3341,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &1280116198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,6 +3575,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 0
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &1367580834
 GameObject:
   m_ObjectHideFlags: 0
@@ -3910,6 +3962,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &1397588280
 GameObject:
   m_ObjectHideFlags: 0
@@ -4024,6 +4080,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &1418968484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4138,6 +4198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &1446064485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4878,7 +4942,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 30.00002
-    OrthographicSize: 50
+    OrthographicSize: 20
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -5108,6 +5172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &1712072913
 GameObject:
   m_ObjectHideFlags: 0
@@ -5306,6 +5374,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &1755095459
 GameObject:
   m_ObjectHideFlags: 0
@@ -5504,6 +5576,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 0
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &1774200781
 GameObject:
   m_ObjectHideFlags: 0
@@ -5574,6 +5650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50e510a0d0d06324687266b212e7f461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stage: 0
   _player: {fileID: 1553126631}
   _mainCam: {fileID: 519420031}
   flipAnchor: {fileID: 1299706541}
@@ -5788,6 +5865,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 0
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &1973718295
 GameObject:
   m_ObjectHideFlags: 0
@@ -5902,6 +5983,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 0
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &2005006410
 GameObject:
   m_ObjectHideFlags: 0
@@ -6003,6 +6088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0aadd73c7745f43aa8f9688135f32f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stage: 0
   _mainCamera: {fileID: 519420031}
   vCam: {fileID: 1605879253}
   _player: {fileID: 1553126631}
@@ -6014,7 +6100,8 @@ MonoBehaviour:
   - 50
   - 65
   - 80
-  eyeBlobParent: {fileID: 0}
+  blobStages: 
+  eyeBlobParent: {fileID: 441767787}
 --- !u!114 &2005006414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6158,6 +6245,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!1 &2014409306
 GameObject:
   m_ObjectHideFlags: 0
@@ -6602,3 +6693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 0
+  growWaitTime: 0
+  growTime: 0

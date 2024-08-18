@@ -13,8 +13,11 @@ public class Blob : MonoBehaviour
     Rigidbody2D rb;
     float scalar = 1.1f;*/
 
+    public Transform spawnPoint;
     private Vector3 targetPos;
-    private bool dormant = true;
+    public bool dormant = true;
+    [Range(0.1f, 5f)] public float growWaitTime;
+    [Range(0.1f, 5f)] public float growTime;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +26,12 @@ public class Blob : MonoBehaviour
         /*rb = GetComponent<Rigidbody2D>();
         distJoint = GetComponent<DistanceJoint2D>();*/
 
-        targetPos = transform.position;
-        gameObject.SetActive(false);
+        targetPos = transform.localPosition;
+
+        if (dormant)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -33,9 +40,20 @@ public class Blob : MonoBehaviour
         
     }
 
-    public void Grow()
+    public IEnumerator Grow()
     {
+        gameObject.SetActive(true);
+        float duration = growTime;
+        float elapsed = 0;
 
+        Vector3 localSpawnPoint = spawnPoint.InverseTransformPoint(spawnPoint.position);
+
+        while (elapsed < duration)
+        {
+            transform.localPosition = Vector3.Lerp(localSpawnPoint, targetPos, Mathf.SmoothStep(0,1,elapsed / duration));
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
     }
 
     public void UpdateSize()

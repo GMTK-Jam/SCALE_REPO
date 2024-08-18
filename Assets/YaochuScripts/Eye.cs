@@ -62,14 +62,16 @@ public class Eye : Limb
         StartCoroutine(ChangeFOV(vCam, currFOV, newFOV, 2));
     }
 
-    void BloatBody()
+    private IEnumerator BloatBody()
     {
+        yield return null;
         int numToPop = blobStages[stage];
         while (numToPop > 0)
         {
             Blob newBlob = blobsToGenerate.Dequeue();
-            
-
+            StartCoroutine(newBlob.Grow());
+            yield return new WaitForSeconds(newBlob.growWaitTime);
+            newBlob.dormant = true;
             numToPop -= 1;
         }
 
