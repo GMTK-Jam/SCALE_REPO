@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arm : MonoBehaviour
+public class Arm : Limb
 {
     private Animator _anim;
 
-    [Range(0.1f, 3)] public float animSpeed;
+    public float[] animSpeeds;
+    public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
 
     void Start()
     {
         _anim = transform.parent.GetComponent<Animator>();
+        _anim.speed = animSpeeds[0];
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        _anim.speed = animSpeed;
 
     }
 
@@ -27,5 +29,12 @@ public class Arm : MonoBehaviour
         {
             enemy.TakeDamage(5);
         }
+    }
+
+    public override void LevelUp()
+    {
+        stage += 1;
+
+        _anim.speed = animSpeeds[stage];
     }
 }

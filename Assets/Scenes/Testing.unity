@@ -1996,7 +1996,7 @@ Camera:
   far clip plane: 1000
   field of view: 30.00002
   orthographic: 1
-  orthographic size: 35
+  orthographic size: 34.99997
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3727,7 +3727,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1299706541}
-  - component: {fileID: 1299706542}
   m_Layer: 0
   m_Name: LegParent
   m_TagString: Untagged
@@ -3751,27 +3750,6 @@ Transform:
   m_Father: {fileID: 1553126622}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1299706542
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299706540}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e8257e687c4fc3542841e4034fedb2b0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1308288184
 GameObject:
   m_ObjectHideFlags: 0
@@ -5201,7 +5179,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 30.00002
-    OrthographicSize: 35
+    OrthographicSize: 34.99997
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -6030,7 +6008,7 @@ MonoBehaviour:
   scaleAnchor: {fileID: 1299706541}
   moveSpeed: 20
   animSpeed: 1.5
-  _growthAnim: {fileID: 1299706542}
+  _growthAnim: {fileID: 1774200782}
   timeBetweenKeyframes: 1
   mouseDistThresh: 2
   animSpeedForLevels:
