@@ -46,7 +46,7 @@ public class Blob : MonoBehaviour
         float duration = growTime;
         float elapsed = 0;
 
-        Vector3 localSpawnPoint = spawnPoint.InverseTransformPoint(spawnPoint.position);
+        Vector3 localSpawnPoint = spawnPoint.localPosition;
 
         while (elapsed < duration)
         {

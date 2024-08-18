@@ -31,12 +31,16 @@ public class Eye : Limb
         foreach (Transform child in eyeBlobParent)
         {
             Blob addBlob;
+            if (child.gameObject.activeSelf == true)
+            {
+                continue;
+            }
             if (child.TryGetComponent<Blob>(out addBlob))
             {
                 blobsToGenerate.Enqueue(addBlob);
             }
         }
-        blobsToGenerate = new Queue<Blob>(blobsToGenerate.OrderBy(b => string.Concat(b.gameObject.name.Where(Char.IsNumber))));
+        blobsToGenerate = new Queue<Blob>(blobsToGenerate.OrderBy(b => Int32.Parse(string.Concat(b.gameObject.name.Where(Char.IsNumber)) )) );
     }
 
     // Update is called once per frame

@@ -197,7 +197,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.95294124, g: 0.7843138, b: 0.65882355, a: 1}
   m_FlipX: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1688104684}
   dormant: 0
   growWaitTime: 0
   growTime: 0
@@ -399,7 +399,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.95294124, g: 0.7843138, b: 0.65882355, a: 1}
   m_FlipX: 0
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1688104684}
   dormant: 0
   growWaitTime: 0
   growTime: 0
@@ -638,7 +638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125862950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: -24.189997, z: 0}
+  m_LocalPosition: {x: -7.21, y: -24.19, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7.1537795}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -685,7 +685,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.95294124, g: 0.7843138, b: 0.65882355, a: 1}
   m_FlipX: 0
@@ -725,7 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1688104684}
   dormant: 0
   growWaitTime: 0
   growTime: 0
@@ -756,7 +756,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127509308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.47, y: -26.92, z: 0}
+  m_LocalPosition: {x: -7.5, y: -26.94, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7.1537795}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -843,7 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -919,7 +919,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1191,7 +1191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256670340}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.39, y: -29.6, z: 0}
+  m_LocalPosition: {x: -8.81, y: -29.67, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7.1537795}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -1477,7 +1477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419907630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.62, y: -18.35, z: 0}
+  m_LocalPosition: {x: -11.55, y: -26.54, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7.1537795}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -1619,6 +1619,7 @@ Transform:
   - {fileID: 1751105496}
   - {fileID: 1249037723}
   - {fileID: 924445172}
+  - {fileID: 1688104684}
   m_Father: {fileID: 2005006412}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1736,7 +1737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -1828,7 +1829,7 @@ Camera:
   far clip plane: 1000
   field of view: 30.00002
   orthographic: 1
-  orthographic size: 34.74321
+  orthographic size: 34.99999
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2497,7 +2498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -2783,7 +2784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -2901,7 +2902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -3016,7 +3017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049944608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.5, y: -30.1, z: 0}
+  m_LocalPosition: {x: -3.08, y: -30.06, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7.1537795}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3103,7 +3104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -3341,7 +3342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -3535,7 +3536,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.95294124, g: 0.7843138, b: 0.65882355, a: 1}
   m_FlipX: 0
@@ -3575,7 +3576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1688104684}
   dormant: 0
   growWaitTime: 0
   growTime: 0
@@ -3875,7 +3876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382033196}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.4, y: -31, z: 0}
+  m_LocalPosition: {x: 2.85, y: -21.9, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7.1537795}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3962,7 +3963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -3993,7 +3994,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397588280}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.65, y: -22.9, z: 0}
+  m_LocalPosition: {x: -14.62, y: -19.31, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7.1537795}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4080,7 +4081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -4111,7 +4112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418968484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.49, y: -26.95, z: 0}
+  m_LocalPosition: {x: -1.73, y: -26.9, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7.1537795}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4198,7 +4199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -4942,7 +4943,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 30.00002
-    OrthographicSize: 34.74321
+    OrthographicSize: 34.99999
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -5085,7 +5086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673594569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.39, y: -25.79, z: 0}
+  m_LocalPosition: {x: -14.52, y: -23.63, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7.1537795}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5172,10 +5173,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
+--- !u!1 &1688104683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688104684}
+  m_Layer: 0
+  m_Name: SpawnAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688104684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688104683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.3, y: -21.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 441767787}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1712072913
 GameObject:
   m_ObjectHideFlags: 0
@@ -5374,7 +5406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -5536,7 +5568,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.95294124, g: 0.7843138, b: 0.65882355, a: 1}
   m_FlipX: 0
@@ -5576,7 +5608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1688104684}
   dormant: 0
   growWaitTime: 0
   growTime: 0
@@ -5825,7 +5857,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.95294124, g: 0.7843138, b: 0.65882355, a: 1}
   m_FlipX: 0
@@ -5865,7 +5897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1688104684}
   dormant: 0
   growWaitTime: 0
   growTime: 0
@@ -5943,7 +5975,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.95294124, g: 0.7843138, b: 0.65882355, a: 1}
   m_FlipX: 0
@@ -5983,7 +6015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1688104684}
   dormant: 0
   growWaitTime: 0
   growTime: 0
@@ -6046,7 +6078,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 17fe8d7c74fd50142aa2959084a03418, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6245,7 +6277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2005006412}
+  spawnPoint: {fileID: 1688104684}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -6653,7 +6685,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.95294124, g: 0.7843138, b: 0.65882355, a: 1}
   m_FlipX: 0
@@ -6693,7 +6725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1688104684}
   dormant: 0
   growWaitTime: 0
   growTime: 0
