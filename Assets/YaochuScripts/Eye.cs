@@ -14,6 +14,8 @@ public class Eye : Limb
     public Player _player;
     public Transform eyeball;
     public CircleCollider2D eyeballAnchor;
+    public Animator _anim;
+    public float timeBetweenKeyframes;
 
     [Tooltip("Corresponding FOV for each level")]
     public List<float> FOVStages;
@@ -27,6 +29,7 @@ public class Eye : Limb
     // Start is called before the first frame update
     void Start()
     {
+        _anim.speed = 0;
         vCam.m_Lens.OrthographicSize = FOVStages[0];
         foreach (Transform child in eyeBlobParent)
         {
@@ -81,6 +84,13 @@ public class Eye : Limb
 
     }
 
+    private IEnumerator BloatEye()
+    {
+        _anim.speed = 1;
+        yield return new WaitForSeconds(timeBetweenKeyframes-0.01f);
+        _anim.speed = 0;
+    }
+
     IEnumerator ChangeFOV(CinemachineVirtualCamera cam, float startFOV, float endFOV, float duration)
     {
         float time = 0;
@@ -98,5 +108,7 @@ public class Eye : Limb
         stage += 1;
         EnlargeView();
         StartCoroutine(BloatBody());
+        StartCoroutine(BloatEye());
+
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
+using UnityEngine.Assertions.Comparers;
 using UnityEngine.InputSystem;
 
 public class Leg : Limb
@@ -9,9 +10,13 @@ public class Leg : Limb
     private Animator _anim;
     public Player _player;
     public Camera _mainCam;
-    public Transform flipAnchor;
+    public Transform scaleAnchor;
     public float moveSpeed;
     [Range(0.1f,3)]public float animSpeed;
+
+
+    public Animator _growthAnim;
+    public float timeBetweenKeyframes = 1;
 
     public float mouseDistThresh;
     private Vector3 defaultScale;
@@ -21,12 +26,20 @@ public class Leg : Limb
 
     private Vector3 mousePos;
 
+    public List<float> animSpeedForLevels;
+    public List<float> moveSpeedForLevels;
+/*    public List<float> sizeForLevels;
+    public List<float> xPosForLevels;*/
+
+    [Range(0.1f, 5f)] public float growTime;
+
     // Start is called before the first frame update
     void Start()
     {
         _anim = GetComponent<Animator>();
         _anim.speed = 0;
-        defaultScale = flipAnchor.localScale;
+        _growthAnim.speed = 0;
+        defaultScale = scaleAnchor.localScale;
     }
 
     // Update is called once per frame
@@ -35,7 +48,6 @@ public class Leg : Limb
         mousePos = _mainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         OnMouseMove();
     }
-
 
     public void OnMouseMove()
     {
@@ -54,11 +66,11 @@ public class Leg : Limb
             currAngle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
             if (moveInput.x < 0)
             {
-                flipAnchor.localScale = new Vector3(defaultScale.x, -defaultScale.y, defaultScale.z);
+                scaleAnchor.localScale = new Vector3(scaleAnchor.localScale.x, -scaleAnchor.localScale.y, defaultScale.z);
             }
             else
             {
-                flipAnchor.localScale = defaultScale;
+                scaleAnchor.localScale = new Vector3(scaleAnchor.localScale.x,Mathf.Abs(scaleAnchor.localScale.y),defaultScale.z);
             }
         }
 
@@ -118,8 +130,45 @@ public class Leg : Limb
         isPushing = false;
     }
 
+
+    private IEnumerator Extend()
+    {
+        _growthAnim.speed = 1;
+        yield return new WaitForSeconds(timeBetweenKeyframes-0.01f);
+        _growthAnim.speed = 0;
+
+        /*float duration = growTime;
+        float elapsed = 0;
+
+        float currScale = sizeForLevels[stage-1];
+        float targetScale = sizeForLevels[stage];
+
+        float currXPos = scaleAnchor.localPosition.x;
+        float targetXPos = scaleAnchor.localPosition.x + xPosForLevels[stage];
+
+        while (elapsed < duration)
+        {
+            float s = Mathf.SmoothStep(currScale, targetScale, elapsed / duration);
+            scaleAnchor.localScale = new Vector3(s, s, scaleAnchor.localScale.z);
+
+            float xPos = Mathf.SmoothStep(currXPos, targetXPos, elapsed / duration);
+            scaleAnchor.localPosition = new Vector3(xPos, scaleAnchor.localPosition.y, scaleAnchor.localPosition.z);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }*/
+    }
+
+    private void SpeedUp()
+    {
+        moveSpeed = moveSpeedForLevels[stage];
+        animSpeed = animSpeedForLevels[stage];
+    }
+
     public override void LevelUp()
     {
-        throw new System.NotImplementedException();
+        stage += 1;
+        StartCoroutine(Extend());
+        SpeedUp();
     }
 }
