@@ -74,12 +74,14 @@ public class Mouth : Limb
         StartCoroutine(BloatMouth());
 
         // Move to the next stage after level-up
-        if (stage < blobStages.Count - 1)
+        if (stage < 4)
         {
             stage++;
             Player.Instance.pickupSpeed = speedStages[stage];
             Player.Instance.pickupDistance = rangeStages[stage];
-
         }
+
+
+        
     }
 }

@@ -113,7 +113,10 @@ public class Eye : Limb
     public override void LevelUp()
     {
         Debug.Log("Eye Level Up");
-        stage += 1;
+        if (stage < 4)
+        {
+            stage++;
+        }
         EnlargeView();
         StartCoroutine(BloatBody());
         StartCoroutine(BloatEye());

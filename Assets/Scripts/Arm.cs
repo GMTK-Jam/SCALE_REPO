@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Arm : Limb
 {
-    private Animator _anim;
+    public Animator _anim;
 
     public float[] animSpeeds;
+    public float[] armScales;
+
     public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
 
     void Start()
     {
         _anim = transform.parent.GetComponent<Animator>();
         _anim.speed = animSpeeds[0];
+        transform.parent.parent.localScale = new Vector3(armScales[0],armScales[0], armScales[0]);
+
 
     }
 
@@ -33,8 +37,12 @@ public class Arm : Limb
 
     public override void LevelUp()
     {
-        stage += 1;
+        if (stage < 4)
+        {
+            stage++;
+        }
+        transform.parent.parent.localScale = new Vector3(armScales[stage], armScales[stage], armScales[stage]);
 
-        _anim.speed = animSpeeds[stage];
+        //_anim.speed = animSpeeds[stage];
     }
 }

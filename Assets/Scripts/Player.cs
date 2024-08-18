@@ -14,7 +14,10 @@ public class Player : MonoBehaviour
 
     public List<Limb> limbs = new List<Limb>();
     static Player _instance;
-    private int healthInt = 100;
+    public int healthInt = 100;
+    public int healthMaxInt = 100;
+    public int recoveryPerSecond = 1;
+
     private int scaleInt = 0;
     private int xpInt = 0;
     public Slider healthSlider;
@@ -24,9 +27,8 @@ public class Player : MonoBehaviour
     public float pickupSpeed = 20f;
 
     [SerializeField]
-    private float _damageCooldown = 2.0f; // Cooldown time in seconds
+    private float _damageCooldown = 2.0f;
 
-    // Dictionary to track the last damage time for each enemy
     private Dictionary<GameObject, float> _lastDamageTimeByEnemy = new Dictionary<GameObject, float>();
 
     public TextMeshProUGUI uiText;
@@ -39,11 +41,15 @@ public class Player : MonoBehaviour
     public Leg leg;
     public Arm arm;
     public Mouth mouth;
+    public Lung lung;
+
     public Image heartImage;
     public Image eyeImage;
     public Image legImage;
     public Image armImage;
     public Image mouthImage;
+    public Image lungImage;
+
     public GameObject uiOverlay;
 
     public static Player Instance
@@ -58,7 +64,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -71,6 +76,9 @@ public class Player : MonoBehaviour
                 limbs.Add(limb);
             }
         }
+
+        // Start health regeneration coroutine
+        StartCoroutine(HealthRegeneration());
     }
 
     public void Move(Vector2 velocity, float rotation)
@@ -79,7 +87,6 @@ public class Player : MonoBehaviour
         rb.rotation = rotation;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -105,31 +112,27 @@ public class Player : MonoBehaviour
 
         mouthImage.fillAmount = mouth.FillPercentage();
         mouthImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (mouth.stage + 1).ToString();
-
+        lungImage.fillAmount = lung.FillPercentage();
+        lungImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (lung.stage + 1).ToString();
     }
 
     public void Collide(GameObject collisionObject)
     {
         if (collisionObject.GetComponent<Enemy>())
         {
-            // Get the current time
             float currentTime = Time.time;
 
-            // Check if we have a record of this enemy's last damage time
             if (!_lastDamageTimeByEnemy.TryGetValue(collisionObject, out float lastDamageTime))
             {
-                // If no record, set the last damage time to a very old time
                 lastDamageTime = -_damageCooldown;
             }
 
-            // Check if the cooldown period has passed
             if (currentTime - lastDamageTime >= _damageCooldown)
             {
                 collisionObject.GetComponent<Enemy>().TakeDamage(10);
                 TakeDamage(10);
                 Debug.Log("Damage taken from " + collisionObject.name);
 
-                // Update the last damage time for this enemy
                 _lastDamageTimeByEnemy[collisionObject] = currentTime;
             }
         }
@@ -138,22 +141,21 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         healthInt -= damageTaken;
-        healthSlider.value = healthInt / 100f;
-        uiText.text = $"Health: {healthInt} XP: {xpInt}";
+        healthInt = Mathf.Clamp(healthInt, 0, healthMaxInt); // Ensure health doesn't go below 0
+        healthSlider.value = (float)healthInt / healthMaxInt;
     }
-
 
     public void AddXP(string xpType, int xpCount)
     {
-        if(xpType == "heart")
+        if (xpType == "heart")
         {
             heart.AddXP(xpCount);
         }
-        if (xpType == "leg")
+        if (xpType == "legs")
         {
             leg.AddXP(xpCount);
         }
-        if (xpType == "arm")
+        if (xpType == "arms")
         {
             arm.AddXP(xpCount);
         }
@@ -165,39 +167,45 @@ public class Player : MonoBehaviour
         {
             mouth.AddXP(xpCount);
         }
-    }
-
-
-    public void UpLevel()
-    {
-        currentLevel += 1;
-        upgradeScreen.SetActive(true);
-        Time.timeScale = 0.05f;
-        levelText.text = "LV" + currentLevel.ToString();
-    }
-
-    public void Button()
-    {
-        upgradeScreen.SetActive(false);
-        Time.timeScale = 1f;
-    }
-
-    public void VisionButton()
-    {
-        upgradeScreen.SetActive(false);
-        Time.timeScale = 1f;
-        StartCoroutine(ChangeFOV(cineCamera, 40f, 0.5f));
-    }
-
-    IEnumerator ChangeFOV(CinemachineVirtualCamera cam, float endFOV, float duration)
-    {
-        float startFOV = cam.m_Lens.OrthographicSize;
-        float time = 0;
-        while (time < duration)
+        if (xpType == "lung")
         {
-            cam.m_Lens.OrthographicSize = Mathf.Lerp(startFOV, endFOV, time / duration);
+            lung.AddXP(xpCount);
+        }
+    }
+
+    public IEnumerator UpdateHealth(int newHealthInt, int newIncreaseRate)
+    {
+        healthMaxInt = newHealthInt;
+        recoveryPerSecond = newIncreaseRate;
+        TakeDamage(0);
+        Vector3 initialScale = healthSlider.transform.localScale;
+        float targetScaleX = 0.38f * (newHealthInt / 100f);
+        Vector3 targetScale = new Vector3(targetScaleX, initialScale.y, initialScale.z);
+        float duration = 0.2f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+            healthSlider.transform.localScale = Vector3.Lerp(initialScale, targetScale, t);
             yield return null;
-            time += Time.deltaTime;
+        }
+
+        healthSlider.transform.localScale = targetScale;
+    }
+
+    private IEnumerator HealthRegeneration()
+    {
+        while (true)
+        {
+            if (healthInt < healthMaxInt)
+            {
+                healthInt += recoveryPerSecond;
+                healthInt = Mathf.Clamp(healthInt, 0, healthMaxInt); // Ensure health doesn't exceed max
+                healthSlider.value = (float)healthInt / healthMaxInt;
+            }
+            yield return new WaitForSeconds(1f); // Wait 1 second between each increment
         }
     }
 }

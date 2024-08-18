@@ -172,7 +172,10 @@ public class Leg : Limb
 
     public override void LevelUp()
     {
-        stage += 1;
+        if (stage < 4)
+        {
+            stage++;
+        }
         StartCoroutine(Extend());
         SpeedUp();
     }

@@ -4,17 +4,17 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-public class Heart : Limb
+public class Lung : Limb
 {
     [Tooltip("How many new blobs to generate for each level up")]
     public List<int> blobStages;
-    public List<int> hpStages;
-    public List<int> hpIncStages;
+    public List<float> flapSpeedStages;
 
     private Queue<Blob> blobsToGenerate = new Queue<Blob>();
-    public Transform heartBlobParent;
-    public Animator _heartSpriteAnim;
+    public Transform lungBlobParent;
+    public Animator _lungSpriteAnim;
     public float timeBetweenKeyframes;
+    public Arm arm;
 
     // Define the XP thresholds specific to Heart
     public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
@@ -26,17 +26,17 @@ public class Heart : Limb
         xps = 0;
 
         // Set the animation speed to 0 at start
-        _heartSpriteAnim.speed = 0;
+        _lungSpriteAnim.speed = 0;
 
         // Enqueue all inactive blobs in heartBlobParent
-        foreach (Transform child in heartBlobParent)
+        foreach (Transform child in lungBlobParent)
         {
             if (child.TryGetComponent<Blob>(out Blob addBlob))
             {
 
-                    Debug.Log("Blob enqueued: " + addBlob.gameObject.name);
-                    blobsToGenerate.Enqueue(addBlob);
-                
+                Debug.Log("Blob enqueued: " + addBlob.gameObject.name);
+                blobsToGenerate.Enqueue(addBlob);
+
             }
         }
 
@@ -60,30 +60,27 @@ public class Heart : Limb
     }
 
     // Coroutine to animate the heart bloating
-    private IEnumerator BloatHeart()
+    private IEnumerator BloatLung()
     {
-        _heartSpriteAnim.speed = 1;
+        _lungSpriteAnim.speed = 1;
         yield return new WaitForSeconds(timeBetweenKeyframes);
-        _heartSpriteAnim.speed = 0;
+        _lungSpriteAnim.speed = 0;
     }
 
     // LevelUp method overriding the abstract method in Limb
     public override void LevelUp()
     {
         StartCoroutine(BloatBody());
-        StartCoroutine(BloatHeart());
-        StartCoroutine(Player.Instance.UpdateHealth(hpStages[stage], hpIncStages[stage]));
-        // Move to the next stage after level-up if possible
+        StartCoroutine(BloatLung());
+
+        // Move to the next stage after level-up
         if (stage < 4)
         {
             stage++;
+            
         }
-    }
-    
+        arm._anim.speed = flapSpeedStages[stage];
 
-    private void Update()
-    {
-        Debug.Log("heartstage: " + stage.ToString());
-    }
 
+    }
 }
