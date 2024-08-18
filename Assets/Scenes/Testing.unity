@@ -845,8 +845,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &158256955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,8 +1280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &336576446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,8 +1566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &441767786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,8 +1738,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,7 +1828,7 @@ Camera:
   far clip plane: 1000
   field of view: 30.00002
   orthographic: 1
-  orthographic size: 35
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2499,8 +2499,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &726786000
 GameObject:
   m_ObjectHideFlags: 0
@@ -2785,8 +2785,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &931138731
 GameObject:
   m_ObjectHideFlags: 0
@@ -2903,8 +2903,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &956388754
 GameObject:
   m_ObjectHideFlags: 0
@@ -3105,8 +3105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &1132355057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3343,8 +3343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &1280116198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3964,8 +3964,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &1397588280
 GameObject:
   m_ObjectHideFlags: 0
@@ -4082,8 +4082,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &1418968484
 GameObject:
   m_ObjectHideFlags: 0
@@ -4200,8 +4200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &1446064485
 GameObject:
   m_ObjectHideFlags: 0
@@ -4942,7 +4942,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 30.00002
-    OrthographicSize: 35
+    OrthographicSize: 20
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -5174,8 +5174,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &1712072913
 GameObject:
   m_ObjectHideFlags: 0
@@ -5376,8 +5376,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &1755095459
 GameObject:
   m_ObjectHideFlags: 0
@@ -6247,8 +6247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   dormant: 1
-  growWaitTime: 0
-  growTime: 0
+  growWaitTime: 0.6
+  growTime: 2
 --- !u!1 &2014409306
 GameObject:
   m_ObjectHideFlags: 0
