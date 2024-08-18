@@ -93,6 +93,6 @@ public class Eye : Limb
         Debug.Log("Eye Level Up");
         stage += 1;
         EnlargeView();
-        BloatBody();
+        StartCoroutine(BloatBody());
     }
 }
