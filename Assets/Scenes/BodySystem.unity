@@ -926,7 +926,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424117049}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1343,6 +1343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!231 &493547953
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -4995,6 +4999,7 @@ MonoBehaviour:
   limbs: []
   healthSlider: {fileID: 9110979705580503501}
   scaleSlider: {fileID: 1395978534}
+  pickupDistance: 10
   _damageCooldown: 2
   uiText: {fileID: 361634480}
   upgradeScales:
@@ -5004,6 +5009,11 @@ MonoBehaviour:
   upgradeScreen: {fileID: 2001408408}
   levelText: {fileID: 1812957244}
   cineCamera: {fileID: 14902964}
+  heart: {fileID: 0}
+  eye: {fileID: 0}
+  leg: {fileID: 0}
+  arm: {fileID: 0}
+  mouth: {fileID: 0}
 --- !u!114 &1333235307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5622,7 +5632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 166, y: -63.2}
+  m_AnchoredPosition: {x: 166, y: -63.19995}
   m_SizeDelta: {x: 616.0013, y: 50.88}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1395978533
@@ -5962,6 +5972,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!231 &1437901711
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -7413,6 +7427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!231 &1811185979
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -7788,6 +7806,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  dormant: 1
+  growWaitTime: 0
+  growTime: 0
 --- !u!231 &1824542739
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -9370,7 +9392,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 164.6, y: -24.3}
+  m_AnchoredPosition: {x: 164.6001, y: -24.300049}
   m_SizeDelta: {x: 616.0013, y: 50.88}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2054901708089363203
