@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public Slider scaleSlider;
     private int currentLevel = 1;
     public float pickupDistance = 10f;
+    public float pickupSpeed = 20f;
 
     [SerializeField]
     private float _damageCooldown = 2.0f; // Cooldown time in seconds
@@ -38,6 +39,13 @@ public class Player : MonoBehaviour
     public Leg leg;
     public Arm arm;
     public Mouth mouth;
+    public Image heartImage;
+    public Image eyeImage;
+    public Image legImage;
+    public Image armImage;
+    public Image mouthImage;
+    public GameObject uiOverlay;
+
     public static Player Instance
     {
         get
@@ -54,7 +62,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        uiOverlay.SetActive(false);
         foreach (Transform child in transform)
         {
             Limb limb;
@@ -74,7 +82,30 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            uiOverlay.SetActive(true);
+            Time.timeScale = 0.05f;
+        }
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            uiOverlay.SetActive(false);
+            Time.timeScale = 1f;
+        }
+
+        heartImage.fillAmount = heart.FillPercentage();
+        heartImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (heart.stage + 1).ToString();
+        legImage.fillAmount = leg.FillPercentage();
+        legImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (leg.stage + 1).ToString();
+        armImage.fillAmount = arm.FillPercentage();
+        armImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (arm.stage + 1).ToString();
+
+        eyeImage.fillAmount = eye.FillPercentage();
+        eyeImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (eye.stage + 1).ToString();
+
+        mouthImage.fillAmount = mouth.FillPercentage();
+        mouthImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (mouth.stage + 1).ToString();
+
     }
 
     public void Collide(GameObject collisionObject)
@@ -111,27 +142,6 @@ public class Player : MonoBehaviour
         uiText.text = $"Health: {healthInt} XP: {xpInt}";
     }
 
-  /*  public void AddScale(int scaleGained)
-    {
-        scaleInt += scaleGained;
-
-        if (currentLevel >= 2)
-        {
-            scaleSlider.value = scaleInt - upgradeScales[currentLevel - 2];
-            scaleSlider.maxValue = upgradeScales[currentLevel - 1] - upgradeScales[currentLevel - 2];
-        }
-        else
-        {
-            scaleSlider.value = scaleInt;
-            scaleSlider.maxValue = upgradeScales[0];
-        }
-
-        if (scaleInt > upgradeScales[currentLevel - 1])
-        {
-            UpLevel();
-        }
-    }
-  */
 
     public void AddXP(string xpType, int xpCount)
     {

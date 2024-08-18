@@ -24,5 +24,19 @@ public abstract class Limb : MonoBehaviour
         }
     }
 
+    public float FillPercentage()
+    {
+        if(stage == 0)
+        {
+            return ((float)xps / (float)xpThresholds[0]);
+        }
+        else
+        {
+            return (((float)xps - (float)xpThresholds[stage - 1]) / ((float)xpThresholds[stage]- (float)xpThresholds[stage-1]));
+
+        }
+    }
+
+
     public abstract void LevelUp();
 }

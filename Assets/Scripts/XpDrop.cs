@@ -8,10 +8,6 @@ public class XpDrop : MonoBehaviour
     private int _xp = 10;
     private bool _moving = false;
     public string xpType;
-        
-    [SerializeField]
-    private float _moveSpeed = 5f;
-
     public void SetXp(int xp)
     {
         _xp = xp;
@@ -38,7 +34,7 @@ public class XpDrop : MonoBehaviour
             transform.position = Vector2.MoveTowards(
                 transform.position,
                 player.transform.position,
-                _moveSpeed * Time.deltaTime
+                player.pickupSpeed * Time.deltaTime
             );
         }
     }
