@@ -1828,7 +1828,7 @@ Camera:
   far clip plane: 1000
   field of view: 30.00002
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 35
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4942,7 +4942,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 30.00002
-    OrthographicSize: 20
+    OrthographicSize: 35
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -6100,7 +6100,7 @@ MonoBehaviour:
   - 50
   - 65
   - 80
-  blobStages: 
+  blobStages: 040000000400000004000000
   eyeBlobParent: {fileID: 441767787}
 --- !u!114 &2005006414
 MonoBehaviour:
