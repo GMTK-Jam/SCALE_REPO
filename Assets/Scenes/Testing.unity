@@ -843,7 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -1564,7 +1564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -1736,7 +1736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -1828,7 +1828,7 @@ Camera:
   far clip plane: 1000
   field of view: 30.00002
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 34.74321
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2497,7 +2497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -2783,7 +2783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -2901,7 +2901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -3103,7 +3103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -3341,7 +3341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -3962,7 +3962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -4080,7 +4080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -4198,7 +4198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -4942,7 +4942,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 30.00002
-    OrthographicSize: 20
+    OrthographicSize: 34.74321
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -5172,7 +5172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -5374,7 +5374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
@@ -6245,7 +6245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebd786e61a73644bd152fcc4dcc2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 2005006412}
   dormant: 1
   growWaitTime: 0.6
   growTime: 2
