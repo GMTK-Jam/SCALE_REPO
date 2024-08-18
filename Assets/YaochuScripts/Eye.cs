@@ -27,6 +27,9 @@ public class Eye : Limb
 
     private Queue<Blob> blobsToGenerate = new Queue<Blob>();
     public Transform eyeBlobParent;
+    public int[] eyeXP;
+    public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,10 +41,12 @@ public class Eye : Limb
             Blob addBlob;
             if (child.gameObject.activeSelf == true)
             {
+
                 continue;
             }
             if (child.TryGetComponent<Blob>(out addBlob))
             {
+
                 blobsToGenerate.Enqueue(addBlob);
             }
         }

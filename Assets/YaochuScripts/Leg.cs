@@ -25,11 +25,14 @@ public class Leg : Limb
     private float currAngle;
 
     private Vector3 mousePos;
+    public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
 
     public List<float> animSpeedForLevels;
     public List<float> moveSpeedForLevels;
-/*    public List<float> sizeForLevels;
-    public List<float> xPosForLevels;*/
+    private bool facingRight = true; // Tracks the current facing direction
+
+    /*    public List<float> sizeForLevels;
+        public List<float> xPosForLevels;*/
 
     [Range(0.1f, 5f)] public float growTime;
 
@@ -51,7 +54,7 @@ public class Leg : Limb
 
     public void OnMouseMove()
     {
-        Vector2 dest = mousePos - _player.transform.position;
+        Vector2 dest = (Vector2)mousePos - (Vector2)_player.transform.position;
         if (dest.magnitude < mouseDistThresh)
         {
             dest = Vector2.zero;
@@ -64,13 +67,16 @@ public class Leg : Limb
         if (velocity.magnitude > 0)
         {
             currAngle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
-            if (moveInput.x < 0)
+
+            bool shouldFaceRight = moveInput.x > 0;
+
+            if (shouldFaceRight != facingRight)
             {
-                scaleAnchor.localScale = new Vector3(scaleAnchor.localScale.x, -scaleAnchor.localScale.y, defaultScale.z);
-            }
-            else
-            {
-                scaleAnchor.localScale = new Vector3(scaleAnchor.localScale.x,Mathf.Abs(scaleAnchor.localScale.y),defaultScale.z);
+                // Flip the leg
+                facingRight = shouldFaceRight;
+                scaleAnchor.localScale = new Vector3(scaleAnchor.localScale.x,
+                                                     facingRight ? Mathf.Abs(scaleAnchor.localScale.y) : -Mathf.Abs(scaleAnchor.localScale.y),
+                                                     defaultScale.z);
             }
         }
 
@@ -78,7 +84,6 @@ public class Leg : Limb
         {
             _anim.speed = animSpeed;
             _player.Move(velocity, currAngle);
-
         }
         else
         {

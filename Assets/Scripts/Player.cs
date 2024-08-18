@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public Slider healthSlider;
     public Slider scaleSlider;
     private int currentLevel = 1;
+    public float pickupDistance = 10f;
 
     [SerializeField]
     private float _damageCooldown = 2.0f; // Cooldown time in seconds
@@ -32,7 +33,11 @@ public class Player : MonoBehaviour
     public GameObject upgradeScreen;
     public TextMeshProUGUI levelText;
     public CinemachineVirtualCamera cineCamera;
-
+    public Heart heart;
+    public Eye eye;
+    public Leg leg;
+    public Arm arm;
+    public Mouth mouth;
     public static Player Instance
     {
         get
@@ -106,7 +111,7 @@ public class Player : MonoBehaviour
         uiText.text = $"Health: {healthInt} XP: {xpInt}";
     }
 
-    public void AddScale(int scaleGained)
+  /*  public void AddScale(int scaleGained)
     {
         scaleInt += scaleGained;
 
@@ -126,12 +131,32 @@ public class Player : MonoBehaviour
             UpLevel();
         }
     }
+  */
 
-    public void AddXp(int xpGained)
+    public void AddXP(string xpType, int xpCount)
     {
-        xpInt += xpGained;
-        uiText.text = $"Health: {healthInt} XP: {xpInt}";
+        if(xpType == "heart")
+        {
+            heart.AddXP(xpCount);
+        }
+        if (xpType == "leg")
+        {
+            leg.AddXP(xpCount);
+        }
+        if (xpType == "arm")
+        {
+            arm.AddXP(xpCount);
+        }
+        if (xpType == "eye")
+        {
+            eye.AddXP(xpCount);
+        }
+        if (xpType == "mouth")
+        {
+            mouth.AddXP(xpCount);
+        }
     }
+
 
     public void UpLevel()
     {

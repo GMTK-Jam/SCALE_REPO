@@ -6008,6 +6008,8 @@ MonoBehaviour:
   scaleAnchor: {fileID: 1299706541}
   moveSpeed: 20
   animSpeed: 1.5
+  _growthAnim: {fileID: 1774200782}
+  timeBetweenKeyframes: 1
   mouseDistThresh: 2
   animSpeedForLevels:
   - 1.5
@@ -6019,16 +6021,6 @@ MonoBehaviour:
   - 30
   - 40
   - 50
-  sizeForLevels:
-  - 1
-  - 1.25
-  - 1.5
-  - 1.8
-  xPosForLevels:
-  - 0
-  - 1
-  - 1
-  - 1
   growTime: 1
 --- !u!114 &1774200785
 MonoBehaviour:
@@ -6526,7 +6518,7 @@ MonoBehaviour:
   _player: {fileID: 1553126631}
   eyeball: {fileID: 0}
   eyeballAnchor: {fileID: 713778034}
-  _anim: {fileID: 0}
+  _eyeSpriteAnim: {fileID: 910296412}
   timeBetweenKeyframes: 1
   FOVStages:
   - 20

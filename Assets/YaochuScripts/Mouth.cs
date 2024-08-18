@@ -5,6 +5,8 @@ using UnityEngine;
 public class Mouth : Limb
 {
     // Start is called before the first frame update
+    public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
+
     void Start()
     {
         

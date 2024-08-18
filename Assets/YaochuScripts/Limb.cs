@@ -1,9 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System;
 
 public abstract class Limb : MonoBehaviour
 {
-    public abstract void LevelUp();
     public int stage { get; set; }
+    public int xps { get; set; }
+    public abstract int[] xpThresholds { get; }
+
+    public void AddXP(int addedXP)
+    {
+        xps += addedXP;
+        CheckLevelUp();
+    }
+
+    private void CheckLevelUp()
+    {
+        if (stage < xpThresholds.Length && xps >= xpThresholds[stage])
+        {
+            LevelUp();
+        }
+    }
+
+    public abstract void LevelUp();
 }

@@ -7,10 +7,8 @@ public class XpDrop : MonoBehaviour
 {
     private int _xp = 10;
     private bool _moving = false;
-
-    [SerializeField]
-    private float _detectPlayerDistance = 3f;
-
+    public string xpType;
+        
     [SerializeField]
     private float _moveSpeed = 5f;
 
@@ -29,7 +27,7 @@ public class XpDrop : MonoBehaviour
         if (
             !_moving
             && Vector2.Distance(player.transform.position, transform.position)
-                < _detectPlayerDistance
+                < player.pickupDistance
         )
         {
             _moving = true;
@@ -52,7 +50,7 @@ public class XpDrop : MonoBehaviour
         if (other.gameObject.name == "Hitbox")
         {
             var player = other.transform.parent.gameObject.GetComponent<Player>();
-            player.AddScale(_xp);
+            player.AddXP(xpType, _xp);
 
             Destroy(gameObject);
         }
