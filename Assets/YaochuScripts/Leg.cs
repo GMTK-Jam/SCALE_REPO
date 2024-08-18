@@ -176,6 +176,10 @@ public class Leg : Limb
         {
             stage++;
         }
+        else
+        {
+            return;
+        }
         StartCoroutine(Extend());
         SpeedUp();
     }

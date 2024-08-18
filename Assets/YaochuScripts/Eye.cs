@@ -117,6 +117,10 @@ public class Eye : Limb
         {
             stage++;
         }
+        else
+        {
+            return;
+        }
         EnlargeView();
         StartCoroutine(BloatBody());
         StartCoroutine(BloatEye());

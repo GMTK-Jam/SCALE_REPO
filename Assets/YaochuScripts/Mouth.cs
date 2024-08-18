@@ -80,6 +80,10 @@ public class Mouth : Limb
             Player.Instance.pickupSpeed = speedStages[stage];
             Player.Instance.pickupDistance = rangeStages[stage];
         }
+        else
+        {
+            return;
+        }
 
 
         

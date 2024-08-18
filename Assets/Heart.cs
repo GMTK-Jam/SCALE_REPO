@@ -34,16 +34,16 @@ public class Heart : Limb
             if (child.TryGetComponent<Blob>(out Blob addBlob))
             {
 
-                    Debug.Log("Blob enqueued: " + addBlob.gameObject.name);
-                    blobsToGenerate.Enqueue(addBlob);
+/*                    Debug.Log("Blob enqueued: " + addBlob.gameObject.name);
+*/                    blobsToGenerate.Enqueue(addBlob);
                 
             }
         }
 
         // Order the blobs in the queue based on the numeric value in their name
         blobsToGenerate = new Queue<Blob>(blobsToGenerate.OrderBy(b => Int32.Parse(string.Concat(b.gameObject.name.Where(Char.IsNumber)))));
-        Debug.Log("Total Blobs in Queue: " + blobsToGenerate.Count);
-    }
+/*        Debug.Log("Total Blobs in Queue: " + blobsToGenerate.Count);
+*/    }
 
     // Coroutine to "bloat" the body by growing the blobs
     private IEnumerator BloatBody()
@@ -83,7 +83,7 @@ public class Heart : Limb
 
     private void Update()
     {
-        Debug.Log("heartstage: " + stage.ToString());
-    }
+/*        Debug.Log("heartstage: " + stage.ToString());
+*/    }
 
 }

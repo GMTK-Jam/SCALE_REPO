@@ -40,7 +40,5 @@ public abstract class Limb : MonoBehaviour
         }
     }
 
-
-
     public abstract void LevelUp();
 }
