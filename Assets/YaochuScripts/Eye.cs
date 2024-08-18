@@ -33,6 +33,7 @@ public class Eye : Limb
     {
         _eyeSpriteAnim.speed = 0;
         vCam.m_Lens.OrthographicSize = FOVStages[0];
+
         foreach (Transform child in eyeBlobParent)
         {
             Blob addBlob;
