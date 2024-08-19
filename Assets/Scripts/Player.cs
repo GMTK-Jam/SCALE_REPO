@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     public Image lungImage;
 
     public GameObject uiOverlay;
+    public TextMeshProUGUI heartText;
 
     public static Player Instance
     {
@@ -79,6 +80,9 @@ public class Player : MonoBehaviour
 
         // Start health regeneration coroutine
         StartCoroutine(HealthRegeneration());
+        
+
+
     }
 
     public void Move(Vector2 velocity, float rotation)
@@ -89,6 +93,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        heartText.text = healthInt.ToString() + "/" + healthMaxInt.ToString();
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             uiOverlay.SetActive(true);
@@ -179,7 +184,7 @@ public class Player : MonoBehaviour
         recoveryPerSecond = newIncreaseRate;
         TakeDamage(0);
         Vector3 initialScale = healthSlider.transform.localScale;
-        float targetScaleX = 0.38f * (newHealthInt / 100f);
+        float targetScaleX = 0.38f * (newHealthInt / 70f);
         Vector3 targetScale = new Vector3(targetScaleX, initialScale.y, initialScale.z);
         float duration = 0.2f;
         float elapsedTime = 0f;
