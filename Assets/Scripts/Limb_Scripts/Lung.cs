@@ -8,13 +8,13 @@ public class Lung : Limb
 {
     [Tooltip("How many new blobs to generate for each level up")]
     public List<int> blobStages;
-    public List<float> flapSpeedStages;
+    public List<float> recoveryTimeStages;
+    public List<float> sprintTimeStages;
 
     private Queue<Blob> blobsToGenerate = new Queue<Blob>();
     public Transform lungBlobParent;
     public Animator _lungSpriteAnim;
     public float timeBetweenKeyframes;
-    public Arm arm;
 
     // Define the XP thresholds specific to Heart
     public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
@@ -25,7 +25,8 @@ public class Lung : Limb
         // Initialize stage and XP
         stage = 0;
         xps = 0;
-
+        Player.Instance.sprintLength = sprintTimeStages[0];
+        Player.Instance.recoveryLength = recoveryTimeStages[0];
         // Set the animation speed to 0 at start
 
         // Enqueue all inactive blobs in heartBlobParent
@@ -79,7 +80,9 @@ public class Lung : Limb
 
             StartCoroutine(BloatBody());
             StartCoroutine(BloatLung());
-            arm._anim.speed = flapSpeedStages[stage];
+            StartCoroutine(Player.Instance.UpdateSprint(sprintTimeStages[stage], recoveryTimeStages[stage]));
+        //    Player.Instance.sprintLength = sprintTimeStages[stage];
+        //    Player.Instance.recoveryLength = recoveryTimeStages[stage];
 
         }
         else

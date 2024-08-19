@@ -53,6 +53,14 @@ public class Player : MonoBehaviour
     public GameObject uiOverlay;
     public TextMeshProUGUI heartText;
 
+    public float sprintFactor = 1.5f;
+    public float sprintLength = 5f;
+    public float recoveryLength = 10f;
+    private float sprintTimer;
+    private bool isSprinting = false;
+    private bool isRecovering = false;
+    public Slider sprintSlider;
+
     public static Player Instance
     {
         get
@@ -69,6 +77,9 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         uiOverlay.SetActive(false);
+        sprintTimer = sprintLength;
+        sprintSlider.value = 1f;
+
         foreach (Transform child in transform)
         {
             Limb limb;
@@ -78,27 +89,26 @@ public class Player : MonoBehaviour
             }
         }
 
-        // Start health regeneration coroutine
-        StartCoroutine(HealthRegeneration());
-        
-
-
     }
 
     public void Move(Vector2 velocity, float rotation)
     {
+        if (isSprinting && sprintTimer > 0)
+        {
+            velocity *= sprintFactor;
+        }
+
         rb.velocity = velocity;
 
-        // Smooth rotation
         float targetAngle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-        float smoothedAngle = Mathf.LerpAngle(rb.rotation, targetAngle, Time.deltaTime * 12f); // Adjust the factor for smoothness
+        float smoothedAngle = Mathf.LerpAngle(rb.rotation, targetAngle, Time.deltaTime * 12f);
         rb.rotation = smoothedAngle;
     }
-
 
     void Update()
     {
         heartText.text = healthInt.ToString() + "/" + healthMaxInt.ToString();
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             uiOverlay.SetActive(true);
@@ -110,6 +120,38 @@ public class Player : MonoBehaviour
             Time.timeScale = 1f;
         }
 
+        // Check for sprint input
+        if (Input.GetKey(KeyCode.LeftShift) && sprintTimer > 0)
+        {
+            isSprinting = true;
+            sprintTimer -= Time.deltaTime;
+            sprintTimer = Mathf.Clamp(sprintTimer, 0f, sprintLength);
+            if (sprintTimer <= 0)
+            {
+                isRecovering = true;
+                isSprinting = false;
+            }
+        }
+        else
+        {
+            isSprinting = false;
+
+            // Recovery logic handled here
+            if (isRecovering || sprintTimer < sprintLength)
+            {
+                sprintTimer += (sprintLength / recoveryLength) * Time.deltaTime;
+                sprintTimer = Mathf.Clamp(sprintTimer, 0f, sprintLength);
+
+                // Only stop recovery when fully recovered
+                if (sprintTimer >= sprintLength)
+                {
+                    isRecovering = false;
+                }
+            }
+        }
+
+        sprintSlider.value = sprintTimer / sprintLength;
+
         heartImage.fillAmount = heart.FillPercentage();
         heartImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (heart.stage + 1).ToString();
         legImage.fillAmount = leg.FillPercentage();
@@ -118,12 +160,14 @@ public class Player : MonoBehaviour
         armImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (arm.stage + 1).ToString();
         eyeImage.fillAmount = eye.FillPercentage();
         eyeImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (eye.stage + 1).ToString();
-
         mouthImage.fillAmount = mouth.FillPercentage();
         mouthImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (mouth.stage + 1).ToString();
         lungImage.fillAmount = lung.FillPercentage();
         lungImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (lung.stage + 1).ToString();
     }
+
+
+
 
     public void Collide(GameObject collisionObject)
     {
@@ -150,7 +194,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         healthInt -= damageTaken;
-        healthInt = Mathf.Clamp(healthInt, 0, healthMaxInt); // Ensure health doesn't go below 0
+        healthInt = Mathf.Clamp(healthInt, 0, healthMaxInt);
         healthSlider.value = (float)healthInt / healthMaxInt;
     }
 
@@ -204,19 +248,27 @@ public class Player : MonoBehaviour
         healthSlider.transform.localScale = targetScale;
     }
 
-    private IEnumerator HealthRegeneration()
+    public IEnumerator UpdateSprint(float newSprintLentth, float newRecoveryTime)
     {
-        while (true)
+        sprintLength = newSprintLentth;
+        recoveryLength = newRecoveryTime;
+        Vector3 initialScale = sprintSlider.transform.localScale;
+        float targetScaleX = 0.2f * (newSprintLentth / lung.sprintTimeStages[0]);
+        Vector3 targetScale = new Vector3(targetScaleX, initialScale.y, initialScale.z);
+        float duration = 0.2f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
         {
-            if (healthInt < healthMaxInt)
-            {
-                healthInt += recoveryPerSecond;
-                healthInt = Mathf.Clamp(healthInt, 0, healthMaxInt); // Ensure health doesn't exceed max
-                healthSlider.value = (float)healthInt / healthMaxInt;
-            }
-            yield return new WaitForSeconds(1f); // Wait 1 second between each increment
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+            sprintSlider.transform.localScale = Vector3.Lerp(initialScale, targetScale, t);
+            yield return null;
         }
+
+        sprintSlider.transform.localScale = targetScale;
     }
+
 
     public int CalculateWeight()
     {
