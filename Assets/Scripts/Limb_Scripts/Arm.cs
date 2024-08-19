@@ -8,6 +8,7 @@ public class Arm : Limb
 
     public float[] animSpeeds;
     public float[] armScales;
+    public List<float> flapSpeedStages;
 
     public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
     public override int[] stagesWeight { get; } = { 100, 200, 300, 400 }; 
@@ -45,6 +46,6 @@ public class Arm : Limb
         }
         transform.parent.localScale = new Vector3(armScales[stage], armScales[stage], armScales[stage]);
 
-        //_anim.speed = animSpeeds[stage];
+        _anim.speed = flapSpeedStages[stage];
     }
 }
