@@ -47,8 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpType: eye
-  _detectPlayerDistance: 9
-  _moveSpeed: 8
 --- !u!58 &7278843099620892698
 CircleCollider2D:
   m_ObjectHideFlags: 0

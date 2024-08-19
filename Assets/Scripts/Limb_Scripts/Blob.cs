@@ -126,6 +126,7 @@ public class Blob : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Player.Instance.Collide(collision.gameObject);
+        Debug.Log("collided");
     }
 
 #if UNITY_EDITOR

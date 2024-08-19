@@ -1220,7 +1220,7 @@ GameObject:
   - component: {fileID: 74721168}
   - component: {fileID: 74721169}
   m_Layer: 6
-  m_Name: Circle (32)
+  m_Name: OriginalBlobs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2125,7 +2125,7 @@ Transform:
   - {fileID: 104524865}
   - {fileID: 2076634716}
   m_Father: {fileID: 1553126622}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &145337834
 MonoBehaviour:
@@ -5948,7 +5948,7 @@ GameObject:
   - component: {fileID: 452790096}
   - component: {fileID: 452790097}
   m_Layer: 6
-  m_Name: Circle (37)
+  m_Name: OriginalBlobs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7392,12 +7392,12 @@ GameObject:
   - component: {fileID: 557236001}
   - component: {fileID: 557236000}
   m_Layer: 0
-  m_Name: Hitbox
+  m_Name: Hitbox(Deprecated)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &557235999
 Transform:
   m_ObjectHideFlags: 0
@@ -7406,12 +7406,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557235998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.53, y: -0.13, z: 0}
+  m_LocalPosition: {x: 1.5300002, y: -0.13000007, z: 0}
   m_LocalScale: {x: 0.27115703, y: 0.27115703, z: 0.27115703}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1553126622}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &557236000
 CircleCollider2D:
@@ -16728,7 +16728,7 @@ GameObject:
   - component: {fileID: 956388757}
   - component: {fileID: 956388758}
   m_Layer: 6
-  m_Name: Circle (33)
+  m_Name: OriginalBlobs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17485,7 +17485,7 @@ GameObject:
   - component: {fileID: 1026037171}
   - component: {fileID: 1026037172}
   m_Layer: 6
-  m_Name: Circle (39)
+  m_Name: OriginalBlobs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17613,7 +17613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1042994631
 Transform:
   m_ObjectHideFlags: 0
@@ -22821,8 +22821,8 @@ Transform:
   - {fileID: 187043311}
   - {fileID: 643700681}
   - {fileID: 476081262}
-  - {fileID: 557235999}
   - {fileID: 145337833}
+  - {fileID: 557235999}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -23575,7 +23575,7 @@ GameObject:
   - component: {fileID: 1608450006}
   - component: {fileID: 1608450007}
   m_Layer: 6
-  m_Name: Circle (35)
+  m_Name: OriginalBlobs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23758,7 +23758,7 @@ GameObject:
   - component: {fileID: 1615042981}
   - component: {fileID: 1615042982}
   m_Layer: 6
-  m_Name: Circle (38)
+  m_Name: OriginalBlobs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26021,7 +26021,7 @@ GameObject:
   - component: {fileID: 1755095462}
   - component: {fileID: 1755095463}
   m_Layer: 6
-  m_Name: Circle (34)
+  m_Name: OriginalBlobs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29372,7 +29372,7 @@ GameObject:
   - component: {fileID: 2036369600}
   - component: {fileID: 2036369601}
   m_Layer: 6
-  m_Name: Circle (36)
+  m_Name: OriginalBlobs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30415,7 +30415,7 @@ GameObject:
   - component: {fileID: 2104561879}
   - component: {fileID: 2104561880}
   m_Layer: 6
-  m_Name: Circle (40)
+  m_Name: OriginalBlobs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
