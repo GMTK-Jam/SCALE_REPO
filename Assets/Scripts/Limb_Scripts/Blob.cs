@@ -123,6 +123,11 @@ public class Blob : MonoBehaviour
         // Implement size update logic here
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Player.Instance.Collide(collision.gameObject);
+    }
+
 #if UNITY_EDITOR
     void OnDrawGizmos()
     {

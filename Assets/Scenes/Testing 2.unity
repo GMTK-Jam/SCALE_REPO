@@ -1218,6 +1218,7 @@ GameObject:
   - component: {fileID: 74721167}
   - component: {fileID: 74721166}
   - component: {fileID: 74721168}
+  - component: {fileID: 74721169}
   m_Layer: 6
   m_Name: Circle (32)
   m_TagString: Untagged
@@ -1316,6 +1317,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a1355eefcc1281b4a8c29c5914a87c33, type: 3}
   - {fileID: 21300000, guid: 203a31ec86f186d4580b2c46e3275ea0, type: 3}
   changeSort: 0
+--- !u!58 &74721169
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74721165}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.000000059604645}
+  serializedVersion: 2
+  m_Radius: 0.50000006
 --- !u!4 &74996443 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1500719006534030533, guid: 36a809e705bd6e948af95fb2e83a3465, type: 3}
@@ -5871,6 +5888,7 @@ GameObject:
   - component: {fileID: 452790094}
   - component: {fileID: 452790095}
   - component: {fileID: 452790096}
+  - component: {fileID: 452790097}
   m_Layer: 6
   m_Name: Circle (37)
   m_TagString: Untagged
@@ -5969,6 +5987,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a1355eefcc1281b4a8c29c5914a87c33, type: 3}
   - {fileID: 21300000, guid: 203a31ec86f186d4580b2c46e3275ea0, type: 3}
   changeSort: 0
+--- !u!58 &452790097
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452790093}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: -0.000000044703484}
+  serializedVersion: 2
+  m_Radius: 0.50000006
 --- !u!1001 &465489794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11362,6 +11396,7 @@ GameObject:
   - component: {fileID: 956388755}
   - component: {fileID: 956388756}
   - component: {fileID: 956388757}
+  - component: {fileID: 956388758}
   m_Layer: 6
   m_Name: Circle (33)
   m_TagString: Untagged
@@ -11460,6 +11495,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a1355eefcc1281b4a8c29c5914a87c33, type: 3}
   - {fileID: 21300000, guid: 203a31ec86f186d4580b2c46e3275ea0, type: 3}
   changeSort: 0
+--- !u!58 &956388758
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956388754}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000011920929, y: -0.000000059604645}
+  serializedVersion: 2
+  m_Radius: 0.50000006
 --- !u!1 &968200088
 GameObject:
   m_ObjectHideFlags: 0
@@ -12071,6 +12122,7 @@ GameObject:
   - component: {fileID: 1026037169}
   - component: {fileID: 1026037170}
   - component: {fileID: 1026037171}
+  - component: {fileID: 1026037172}
   m_Layer: 6
   m_Name: Circle (39)
   m_TagString: Untagged
@@ -12169,6 +12221,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a1355eefcc1281b4a8c29c5914a87c33, type: 3}
   - {fileID: 21300000, guid: 203a31ec86f186d4580b2c46e3275ea0, type: 3}
   changeSort: 0
+--- !u!58 &1026037172
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026037168}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000011920929, y: -0.000000059604645}
+  serializedVersion: 2
+  m_Radius: 0.50000006
 --- !u!1 &1042994630
 GameObject:
   m_ObjectHideFlags: 0
@@ -18025,6 +18093,7 @@ GameObject:
   - component: {fileID: 1608450004}
   - component: {fileID: 1608450005}
   - component: {fileID: 1608450006}
+  - component: {fileID: 1608450007}
   m_Layer: 6
   m_Name: Circle (35)
   m_TagString: Untagged
@@ -18123,6 +18192,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a1355eefcc1281b4a8c29c5914a87c33, type: 3}
   - {fileID: 21300000, guid: 203a31ec86f186d4580b2c46e3275ea0, type: 3}
   changeSort: 0
+--- !u!58 &1608450007
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608450003}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: -0.000000059604645}
+  serializedVersion: 2
+  m_Radius: 0.50000006
 --- !u!1001 &1614578724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18191,6 +18276,7 @@ GameObject:
   - component: {fileID: 1615042979}
   - component: {fileID: 1615042980}
   - component: {fileID: 1615042981}
+  - component: {fileID: 1615042982}
   m_Layer: 6
   m_Name: Circle (38)
   m_TagString: Untagged
@@ -18289,6 +18375,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a1355eefcc1281b4a8c29c5914a87c33, type: 3}
   - {fileID: 21300000, guid: 203a31ec86f186d4580b2c46e3275ea0, type: 3}
   changeSort: 0
+--- !u!58 &1615042982
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615042978}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: -0.000000059604645}
+  serializedVersion: 2
+  m_Radius: 0.50000006
 --- !u!1 &1616735908
 GameObject:
   m_ObjectHideFlags: 0
@@ -20437,6 +20539,7 @@ GameObject:
   - component: {fileID: 1755095460}
   - component: {fileID: 1755095461}
   - component: {fileID: 1755095462}
+  - component: {fileID: 1755095463}
   m_Layer: 6
   m_Name: Circle (34)
   m_TagString: Untagged
@@ -20535,6 +20638,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a1355eefcc1281b4a8c29c5914a87c33, type: 3}
   - {fileID: 21300000, guid: 203a31ec86f186d4580b2c46e3275ea0, type: 3}
   changeSort: 0
+--- !u!58 &1755095463
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755095459}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.50000006
 --- !u!1001 &1764801730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23606,6 +23725,7 @@ GameObject:
   - component: {fileID: 2036369598}
   - component: {fileID: 2036369599}
   - component: {fileID: 2036369600}
+  - component: {fileID: 2036369601}
   m_Layer: 6
   m_Name: Circle (36)
   m_TagString: Untagged
@@ -23704,6 +23824,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a1355eefcc1281b4a8c29c5914a87c33, type: 3}
   - {fileID: 21300000, guid: 203a31ec86f186d4580b2c46e3275ea0, type: 3}
   changeSort: 0
+--- !u!58 &2036369601
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036369597}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: -0.000000059604645}
+  serializedVersion: 2
+  m_Radius: 0.50000006
 --- !u!1 &2039247715
 GameObject:
   m_ObjectHideFlags: 0
@@ -24632,6 +24768,7 @@ GameObject:
   - component: {fileID: 2104561877}
   - component: {fileID: 2104561878}
   - component: {fileID: 2104561879}
+  - component: {fileID: 2104561880}
   m_Layer: 6
   m_Name: Circle (40)
   m_TagString: Untagged
@@ -24730,6 +24867,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a1355eefcc1281b4a8c29c5914a87c33, type: 3}
   - {fileID: 21300000, guid: 203a31ec86f186d4580b2c46e3275ea0, type: 3}
   changeSort: 0
+--- !u!58 &2104561880
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104561876}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: -0.00000009685755}
+  serializedVersion: 2
+  m_Radius: 0.50000006
 --- !u!1 &2112683142
 GameObject:
   m_ObjectHideFlags: 0
