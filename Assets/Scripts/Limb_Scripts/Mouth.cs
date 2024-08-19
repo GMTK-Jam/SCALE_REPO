@@ -26,7 +26,6 @@ public class Mouth : Limb
         xps = 0;
 
         // Set the animation speed to 0 at start
-        _mouthSpriteAnim.speed = 0;
 
         // Enqueue all inactive blobs in heartBlobParent
         foreach (Transform child in mouthBlobParent)
@@ -62,23 +61,26 @@ public class Mouth : Limb
     // Coroutine to animate the heart bloating
     private IEnumerator BloatMouth()
     {
-        _mouthSpriteAnim.speed = 1;
+        _mouthSpriteAnim.SetFloat("bulgeSpeed", 1f);
         yield return new WaitForSeconds(timeBetweenKeyframes);
-        _mouthSpriteAnim.speed = 0;
+        _mouthSpriteAnim.SetFloat("bulgeSpeed", 0f);
     }
 
     // LevelUp method overriding the abstract method in Limb
     public override void LevelUp()
     {
-        StartCoroutine(BloatBody());
-        StartCoroutine(BloatMouth());
+
 
         // Move to the next stage after level-up
         if (stage < 4)
         {
             stage++;
+
             Player.Instance.pickupSpeed = speedStages[stage];
             Player.Instance.pickupDistance = rangeStages[stage];
+            StartCoroutine(BloatBody());
+            StartCoroutine(BloatMouth());
+
         }
         else
         {

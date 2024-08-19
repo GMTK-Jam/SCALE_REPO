@@ -40,7 +40,7 @@ public class Leg : Limb
     void Start()
     {
         _anim = GetComponent<Animator>();
-        _anim.speed = 0;
+        _anim.speed = 1;
         _growthAnim.speed = 0;
         defaultScale = scaleAnchor.localScale;
     }

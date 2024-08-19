@@ -26,7 +26,6 @@ public class Lung : Limb
         xps = 0;
 
         // Set the animation speed to 0 at start
-        _lungSpriteAnim.speed = 0;
 
         // Enqueue all inactive blobs in heartBlobParent
         foreach (Transform child in lungBlobParent)
@@ -62,28 +61,30 @@ public class Lung : Limb
     // Coroutine to animate the heart bloating
     private IEnumerator BloatLung()
     {
-        _lungSpriteAnim.speed = 1;
+        _lungSpriteAnim.SetFloat("bulgeSpeed", 1f);
         yield return new WaitForSeconds(timeBetweenKeyframes);
-        _lungSpriteAnim.speed = 0;
+        _lungSpriteAnim.SetFloat("bulgeSpeed", 0f);
     }
 
     // LevelUp method overriding the abstract method in Limb
     public override void LevelUp()
     {
-        StartCoroutine(BloatBody());
-        StartCoroutine(BloatLung());
+
 
         // Move to the next stage after level-up
         if (stage < 4)
         {
             stage++;
-            
+
+            StartCoroutine(BloatBody());
+            StartCoroutine(BloatLung());
+            arm._anim.speed = flapSpeedStages[stage];
+
         }
         else
         {
             return;
         }
-        arm._anim.speed = flapSpeedStages[stage];
 
 
     }

@@ -34,7 +34,6 @@ public class Eye : Limb
     // Start is called before the first frame update
     void Start()
     {
-        _eyeSpriteAnim.speed = 0;
         vCam.m_Lens.OrthographicSize = FOVStages[0];
 
         foreach (Transform child in eyeBlobParent)
@@ -71,6 +70,7 @@ public class Eye : Limb
 */
     void EnlargeView()
     {
+
         float currFOV = FOVStages[stage - 1];
         float newFOV = FOVStages[stage];
         Debug.Log("newFOV: " + newFOV);
@@ -94,9 +94,10 @@ public class Eye : Limb
 
     private IEnumerator BloatEye()
     {
-        _eyeSpriteAnim.speed = 1;
+        _eyeSpriteAnim.SetFloat("bulgeSpeed", 1f);
         yield return new WaitForSeconds(timeBetweenKeyframes-0.01f);
-        _eyeSpriteAnim.speed = 0;
+        _eyeSpriteAnim.SetFloat("bulgeSpeed", 0f);
+
     }
 
     IEnumerator ChangeFOV(CinemachineVirtualCamera cam, float startFOV, float endFOV, float duration)
@@ -116,14 +117,17 @@ public class Eye : Limb
         if (stage < 4)
         {
             stage++;
+
+            EnlargeView();
+            StartCoroutine(BloatBody());
+            StartCoroutine(BloatEye());
+
         }
         else
         {
             return;
         }
-        EnlargeView();
-        StartCoroutine(BloatBody());
-        StartCoroutine(BloatEye());
+
 
     }
 }

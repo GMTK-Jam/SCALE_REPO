@@ -26,7 +26,6 @@ public class Heart : Limb
         xps = 0;
 
         // Set the animation speed to 0 at start
-        _heartSpriteAnim.speed = 0;
 
         // Enqueue all inactive blobs in heartBlobParent
         foreach (Transform child in heartBlobParent)
@@ -62,21 +61,24 @@ public class Heart : Limb
     // Coroutine to animate the heart bloating
     private IEnumerator BloatHeart()
     {
-        _heartSpriteAnim.speed = 1;
+        _heartSpriteAnim.SetFloat("bulgeSpeed", 1f);
         yield return new WaitForSeconds(timeBetweenKeyframes);
-        _heartSpriteAnim.speed = 0;
+        _heartSpriteAnim.SetFloat("bulgeSpeed", 0f);
     }
 
     // LevelUp method overriding the abstract method in Limb
     public override void LevelUp()
     {
-        StartCoroutine(BloatBody());
-        StartCoroutine(BloatHeart());
-        StartCoroutine(Player.Instance.UpdateHealth(hpStages[stage], hpIncStages[stage]));
+
         // Move to the next stage after level-up if possible
         if (stage < 4)
         {
             stage++;
+
+            StartCoroutine(BloatBody());
+            StartCoroutine(BloatHeart());
+            StartCoroutine(Player.Instance.UpdateHealth(hpStages[stage], hpIncStages[stage]));
+
         }
     }
     
