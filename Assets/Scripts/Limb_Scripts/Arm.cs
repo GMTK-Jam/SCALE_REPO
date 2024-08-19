@@ -43,7 +43,7 @@ public class Arm : Limb
         {
             stage++;
         }
-        transform.parent.parent.localScale = new Vector3(armScales[stage], armScales[stage], armScales[stage]);
+        transform.parent.localScale = new Vector3(armScales[stage], armScales[stage], armScales[stage]);
 
         //_anim.speed = animSpeeds[stage];
     }

@@ -111,7 +111,6 @@ public class Player : MonoBehaviour
         legImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (leg.stage + 1).ToString();
         armImage.fillAmount = arm.FillPercentage();
         armImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (arm.stage + 1).ToString();
-
         eyeImage.fillAmount = eye.FillPercentage();
         eyeImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (eye.stage + 1).ToString();
 
