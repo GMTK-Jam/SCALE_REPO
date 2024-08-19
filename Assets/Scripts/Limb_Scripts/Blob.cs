@@ -9,7 +9,7 @@ using UnityEngine;
 public class Blob : MonoBehaviour
 {
     private CircleCollider2D circleCollider;
-    private SpriteRenderer renderer;
+    private SpriteRenderer spriteRenderer;
 
     [Tooltip("The point from which the blob should grow out of, usually in the same hierarchy level as the blobs, defining a localPosition")]
     public Transform spawnPoint;
@@ -24,6 +24,7 @@ public class Blob : MonoBehaviour
     [SerializeField]
     private Sprite[] sprites;
     private int randomIndex;
+    public bool changeSort = true;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +37,10 @@ public class Blob : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        renderer = GetComponent<SpriteRenderer>();
-        renderer.color = Color.white;
-        // Load the sprites
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.white;
 
-
+        // Validate the sprites
         for (int i = 0; i < sprites.Length; i++)
         {
             if (sprites[i] == null)
@@ -52,33 +52,53 @@ public class Blob : MonoBehaviour
                 Debug.Log($"Sprite at index {i} loaded successfully: {sprites[i].name}");
             }
         }
-
-        // Randomly select either A, B, or C
-        randomIndex = UnityEngine.Random.Range(0, 3) * 2; // This will give 0, 2, or 4
-        renderer.sprite = sprites[randomIndex]; // Set to -1 graphic
     }
 
     void OnEnable()
     {
-        // Start the sprite switch coroutine when the GameObject becomes active
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Randomly select either A, B, or C when the blob is enabled
+        randomIndex = UnityEngine.Random.Range(0, 3) * 2; // This will give 0, 2, or 4
+        spriteRenderer.sprite = sprites[randomIndex]; // Set to -1 graphic
+
         StartCoroutine(SwitchSprite(randomIndex));
+
+        if (changeSort)
+        {
+            int blobCount = CountObjectsWithLayer("Blob");
+            spriteRenderer.sortingOrder = -110 - blobCount;
+        }
+    }
+
+    int CountObjectsWithLayer(string layerName)
+    {
+        int layer = LayerMask.NameToLayer(layerName);
+        GameObject[] allObjects = FindObjectsOfType<GameObject>();
+        int count = 0;
+
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.layer == layer)
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     private IEnumerator SwitchSprite(int startIndex)
     {
         while (true)
         {
-            // Wait for a random time between 0.3 and 1.2 seconds
             yield return new WaitForSeconds(UnityEngine.Random.Range(0.3f, 1.2f));
 
-            // Switch to -2 graphic
-            renderer.sprite = sprites[startIndex + 1];
+            spriteRenderer.sprite = sprites[startIndex + 1];
 
-            // Wait again for a random time between 0.3 and 1.2 seconds
             yield return new WaitForSeconds(UnityEngine.Random.Range(0.3f, 1.2f));
 
-            // Switch back to -1 graphic
-            renderer.sprite = sprites[startIndex];
+            spriteRenderer.sprite = sprites[startIndex];
         }
     }
 
