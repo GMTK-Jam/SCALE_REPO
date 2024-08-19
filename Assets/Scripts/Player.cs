@@ -88,8 +88,13 @@ public class Player : MonoBehaviour
     public void Move(Vector2 velocity, float rotation)
     {
         rb.velocity = velocity;
-        rb.rotation = rotation;
+
+        // Smooth rotation
+        float targetAngle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+        float smoothedAngle = Mathf.LerpAngle(rb.rotation, targetAngle, Time.deltaTime * 12f); // Adjust the factor for smoothness
+        rb.rotation = smoothedAngle;
     }
+
 
     void Update()
     {

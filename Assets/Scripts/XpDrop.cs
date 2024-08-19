@@ -8,6 +8,7 @@ public class XpDrop : MonoBehaviour
     private int _xp = 10;
     private bool _moving = false;
     public string xpType;
+
     public void SetXp(int xp)
     {
         _xp = xp;
@@ -20,13 +21,16 @@ public class XpDrop : MonoBehaviour
         {
             return;
         }
-        if (
-            !_moving
-            && Vector2.Distance(player.transform.position, transform.position)
-                < player.pickupDistance
-        )
+
+        float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+
+        if (!_moving && distanceToPlayer < player.pickupDistance)
         {
             _moving = true;
+        }
+        else if (_moving && distanceToPlayer >= player.pickupDistance)
+        {
+            _moving = false; // Stop chasing if the player moves out of range
         }
 
         if (_moving)
@@ -41,7 +45,6 @@ public class XpDrop : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
         Debug.Log("triggeredname:" + other.gameObject.name);
         if (other.gameObject.name.Contains("Blob"))
         {
