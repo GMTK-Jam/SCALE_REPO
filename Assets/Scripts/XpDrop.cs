@@ -48,8 +48,7 @@ public class XpDrop : MonoBehaviour
         Debug.Log("triggeredname:" + other.gameObject.name);
         if (other.gameObject.name.Contains("Blob"))
         {
-            var player = other.transform.parent.gameObject.GetComponent<Player>();
-            player.AddXP(xpType, _xp);
+            Player.Instance.AddXP(xpType, _xp);
 
             Destroy(gameObject);
         }
