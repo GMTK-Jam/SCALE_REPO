@@ -13,9 +13,9 @@ public class Arm : Limb
 
     void Start()
     {
-        _anim = transform.parent.GetComponent<Animator>();
+        _anim = GetComponent<Animator>();
         _anim.speed = animSpeeds[0];
-        transform.parent.parent.localScale = new Vector3(armScales[0],armScales[0], armScales[0]);
+        transform.parent.localScale = new Vector3(armScales[0],armScales[0], armScales[0]);
 
 
     }
