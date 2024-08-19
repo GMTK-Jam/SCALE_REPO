@@ -25,9 +25,9 @@ public class Player : MonoBehaviour
     private int currentLevel = 1;
     public float pickupDistance = 10f;
     public float pickupSpeed = 20f;
-
     [SerializeField]
     private float _damageCooldown = 2.0f;
+    public TextMeshProUGUI weightText;
 
     private Dictionary<GameObject, float> _lastDamageTimeByEnemy = new Dictionary<GameObject, float>();
 
@@ -207,5 +207,12 @@ public class Player : MonoBehaviour
             }
             yield return new WaitForSeconds(1f); // Wait 1 second between each increment
         }
+    }
+
+    public int CalculateWeight()
+    {
+        int totalWeight = heart.stagesWeight[heart.stage] + lung.stagesWeight[lung.stage] + arm.stagesWeight[arm.stage] + leg.stagesWeight[leg.stage] + eye.stagesWeight[eye.stage] + mouth.stagesWeight[mouth.stage];
+        weightText.text = ("Weight: " + totalWeight.ToString());
+        return totalWeight;
     }
 }

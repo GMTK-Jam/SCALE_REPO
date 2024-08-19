@@ -18,6 +18,7 @@ public class Mouth : Limb
 
     // Define the XP thresholds specific to Heart
     public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
+    public override int[] stagesWeight { get; } = { 100, 200, 300, 400 };
 
     void Start()
     {

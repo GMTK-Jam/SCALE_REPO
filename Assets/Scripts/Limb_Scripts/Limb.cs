@@ -10,7 +10,7 @@ public abstract class Limb : MonoBehaviour
     public int xps { get; set; }
     public abstract int[] xpThresholds { get; }
 
-  //  public abstract int[] stagesWeight { get; }
+    public abstract int[] stagesWeight { get; }
 
 
     public void AddXP(int addedXP)

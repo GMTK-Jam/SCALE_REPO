@@ -26,6 +26,7 @@ public class Leg : Limb
 
     private Vector3 mousePos;
     public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
+    public override int[] stagesWeight { get; } = { 100, 200, 300, 400 };
 
     public List<float> animSpeedForLevels;
     public List<float> moveSpeedForLevels;
@@ -35,6 +36,7 @@ public class Leg : Limb
         public List<float> xPosForLevels;*/
 
     [Range(0.1f, 5f)] public float growTime;
+    public float weightIndex;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,8 @@ public class Leg : Limb
     {
         mousePos = _mainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         OnMouseMove();
+        moveSpeed = moveSpeedForLevels[stage] * weightIndex / Player.Instance.CalculateWeight();
+
     }
 
     public void OnMouseMove()
@@ -166,7 +170,6 @@ public class Leg : Limb
 
     private void SpeedUp()
     {
-        moveSpeed = moveSpeedForLevels[stage];
         animSpeed = animSpeedForLevels[stage];
     }
 

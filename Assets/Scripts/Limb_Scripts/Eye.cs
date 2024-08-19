@@ -30,6 +30,7 @@ public class Eye : Limb
     public int[] eyeXP;
     public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
 
+    public override int[] stagesWeight { get; } = { 100, 200, 300, 400 };
 
     // Start is called before the first frame update
     void Start()
