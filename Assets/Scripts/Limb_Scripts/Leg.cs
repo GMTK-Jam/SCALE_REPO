@@ -170,6 +170,22 @@ public class Leg : Limb
         animSpeed = animSpeedForLevels[stage];
     }
 
+
+
+    public void Attack()
+    {
+        transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = true;
+        Debug.Log("attack");
+        transform.GetChild(0).GetComponent<ParticleSystem>().time = 0;
+        transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+        Invoke("StopAttack", 0.2f);
+    }
+
+    void StopAttack()
+    {
+        transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = false;
+
+    }
     public override void LevelUp()
     {
         if (stage < 4)
