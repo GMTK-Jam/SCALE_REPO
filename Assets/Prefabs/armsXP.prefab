@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1500719006534030533}
   - component: {fileID: 4537481635261412375}
   - component: {fileID: 7278843099620892698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: armsXP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,8 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpType: arms
-  _detectPlayerDistance: 9
-  _moveSpeed: 8
 --- !u!58 &7278843099620892698
 CircleCollider2D:
   m_ObjectHideFlags: 0

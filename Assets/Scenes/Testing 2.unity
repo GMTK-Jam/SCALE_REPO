@@ -22717,6 +22717,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: armsXP
       objectReference: {fileID: 0}
+    - target: {fileID: 5429348461832209578, guid: 95fc7e94ab87aaf4e86bd9f084a5eaa5, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906032114607646778, guid: 95fc7e94ab87aaf4e86bd9f084a5eaa5, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95fc7e94ab87aaf4e86bd9f084a5eaa5, type: 3}
 --- !u!1001 &1551226195
