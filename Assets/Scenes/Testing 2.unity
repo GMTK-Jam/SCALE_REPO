@@ -25807,6 +25807,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3031846051943772804, guid: 19f2bbda3ab9ea244b33dc866f8329d2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3076947325952758296, guid: 19f2bbda3ab9ea244b33dc866f8329d2, type: 3}
       propertyPath: m_Name
       value: BlobEnemy2

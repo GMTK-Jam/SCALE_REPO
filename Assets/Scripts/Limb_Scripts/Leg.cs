@@ -32,6 +32,8 @@ public class Leg : Limb
     public List<float> moveSpeedForLevels;
     private bool facingRight = true; // Tracks the current facing direction
 
+    public List<int> attackPowerbyStage;
+
     /*    public List<float> sizeForLevels;
         public List<float> xPosForLevels;*/
 
@@ -202,5 +204,10 @@ public class Leg : Limb
         StartCoroutine(Extend());
         SpeedUp();
 
+    }
+
+    public float GetAttackPower()
+    {
+        return attackPowerbyStage[stage];
     }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 using System.Runtime.CompilerServices;
+using Unity.Mathematics;
 
 [RequireComponent(typeof(EnemyAnimator))]
 public abstract class BaseEnemy : MonoBehaviour
@@ -173,7 +174,7 @@ public abstract class BaseEnemy : MonoBehaviour
 
         if (availableSkills.Count > 0)
         {
-            int randomIndex = Random.Range(0, availableSkills.Count);
+            int randomIndex = UnityEngine.Random.Range(0, availableSkills.Count);
             availableSkills[randomIndex].Use();
         }
     }
@@ -220,8 +221,19 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         if(collision.gameObject.layer == 10)
         {
-            TakeDamage(5);
-            Debug.Log("takedamage");
+            Arm arm;
+            Leg leg;
+            float ap;
+            if (collision.gameObject.TryGetComponent<Arm>(out arm))
+            {
+                ap = arm.GetAttackPower();
+            }
+            else if (collision.gameObject.TryGetComponent<Leg>(out leg))
+            {
+                ap = leg.GetAttackPower();
+            }
+            TakeDamage((int)ap);
+
         }
     }
 

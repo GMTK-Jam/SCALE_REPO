@@ -18,7 +18,9 @@ public class Arm : Limb
     
 
     public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
-    public override int[] stagesWeight { get; } = { 100, 200, 300, 400 }; 
+    public override int[] stagesWeight { get; } = { 100, 200, 300, 400 };
+
+    public List<float> attackPowerbyStage;
 
 
     void Start()
@@ -82,4 +84,9 @@ public class Arm : Limb
 
 /*        _anim.speed = attackSpeeds[stage];
 */    }
+
+    public float GetAttackPower()
+    {
+        return attackPowerbyStage[stage];
+    }
 }
