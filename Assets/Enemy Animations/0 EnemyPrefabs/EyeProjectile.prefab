@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8388311883465478583}
   - component: {fileID: 8722819685256157341}
   - component: {fileID: 8432132894247168847}
+  - component: {fileID: 7901623501295572804}
+  - component: {fileID: -7095129337557854640}
   m_Layer: 12
   m_Name: EyeProjectile
   m_TagString: Untagged
@@ -101,3 +103,40 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1240e968578fbfc45bb8e21990c71e30, type: 3}
   - {fileID: 21300000, guid: 025e2bfc1abd7dd41948b511a1844ef9, type: 3}
   - {fileID: 21300000, guid: 813b05e9a3cb0ee4793b80b6eb2913a5, type: 3}
+--- !u!50 &7901623501295572804
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7015744364238824537}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &-7095129337557854640
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7015744364238824537}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.1657143, y: -0.853755}
+  serializedVersion: 2
+  m_Radius: 0.9689951

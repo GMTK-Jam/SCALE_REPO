@@ -169,10 +169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyClass: 5
   baseHealth: 15
-  baseDamage: 0
+  baseDamage: 10
   baseMaxSpeed: 10
-  baseStoppingDistance: 50
-  baseAttackDistance: 50
+  baseStoppingDistance: 80
+  baseAttackDistance: 80
   baseAttackInterval: 2
   spawnWave: 0
   skills: []

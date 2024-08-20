@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyClass: 1
   baseHealth: 15
-  baseDamage: 0
+  baseDamage: 10
   baseMaxSpeed: 10
   baseStoppingDistance: 70
   baseAttackDistance: 70

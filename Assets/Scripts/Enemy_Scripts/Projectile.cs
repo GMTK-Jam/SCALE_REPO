@@ -16,21 +16,23 @@ public class Projectile : MonoBehaviour
 
     private SpriteRenderer _renderer;
     public List<Sprite> sprites;
+    private Rigidbody2D _rb;
 
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("projectile created");
+        _rb = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<SpriteRenderer>();
         if (target != null)
         {
             // Calculate the direction from the projectile to the target
             direction = (target.position - transform.position).normalized;
+            _rb.velocity = direction * speed;
         }
         StartCoroutine(SwitchSprite(0));
     }
-
 
 
     // Update is called once per frame
@@ -38,13 +40,11 @@ public class Projectile : MonoBehaviour
     {
         if (target != null)
         {
-            // Move the projectile towards the target
-            transform.position += direction * speed * Time.deltaTime;
             distanceTravelled += speed * Time.deltaTime;
             if (distanceTravelled > range)
             {
                 speed = 0;
-                Explode();
+                StartCoroutine(Explode());
             }
         }
     }
