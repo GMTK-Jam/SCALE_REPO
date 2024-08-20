@@ -140,8 +140,13 @@ public abstract class BaseEnemy : MonoBehaviour
 
             if (overlaps > 0)
             {
-                Blob damagedBlob = results[0].GetComponent<Blob>();
-                return damagedBlob;
+                foreach (Collider2D blobCollider in results)
+                {
+                    blobCollider.GetComponent<Blob>().EnterDamageFrame();
+                }
+
+                Blob firstDamagedBlob = results[0].GetComponent<Blob>();
+                return firstDamagedBlob;
             }
         }
         return null;

@@ -79,6 +79,10 @@ public class Blob : MonoBehaviour
 
     public void EnterDamageFrame()
     {
+        if (inDamageFrame)
+        {
+            return;
+        }
         StartCoroutine(SwitchDamageFrame());
         // Play sound
     }
