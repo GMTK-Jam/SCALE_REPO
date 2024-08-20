@@ -24,8 +24,8 @@ public class Arm : Limb
     void Start()
     {
         _anim = GetComponent<Animator>();
-/*        _anim.speed = animSpeeds[0];
-*/        transform.parent.localScale = new Vector3(armScales[0],armScales[0], armScales[0]);
+        _anim.speed = 1;
+        transform.parent.localScale = new Vector3(armScales[0],armScales[0], armScales[0]);
 
 
     }
@@ -38,7 +38,7 @@ public class Arm : Limb
     private IEnumerator HoldArmSwingRoutine()
     {
         _anim.speed = 0;
-        yield return new WaitForSeconds(animPauseFrames[stage]);
+        yield return new WaitForSeconds(animPauseFrames[stage]/60);
         _anim.speed = 1;
     }
 
