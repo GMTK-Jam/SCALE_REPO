@@ -38,6 +38,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [Tooltip("How long does Enemy stop for after taking damage")]
     [Range(0f, 3f)] public float damageFreezeTime = 0f;
 
+    public GameObject exp;
+    
     private bool limbo = false;
     private bool frozen = false;
     private float attackTimer;
@@ -219,7 +221,16 @@ public abstract class BaseEnemy : MonoBehaviour
         aiPath.maxSpeed = 0;
         _enemyAnimator.StartDeathAnimation();
         yield return new WaitForSeconds(deathStainTime);
+        DropExp();
         Destroy(gameObject, 0.1f);
+    }
+
+    protected virtual void DropExp()
+    {
+        if (exp != null)
+        {
+            Instantiate(exp, transform.position, Quaternion.identity);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
