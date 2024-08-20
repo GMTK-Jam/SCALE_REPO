@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Blob : BaseEnemy
+public class Enemy_Eye : BaseEnemy
 {
     protected override void Start()
     {

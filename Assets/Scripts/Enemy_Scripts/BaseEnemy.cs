@@ -244,5 +244,6 @@ public enum EnemyClass
     Arm,
     Leg,
     Mouth,
-    Eye
+    Eye,
+    Blob
 }

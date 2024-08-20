@@ -13046,9 +13046,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015552521, y: 0}
+  m_Offset: {x: -0.3285408, y: 0}
   serializedVersion: 2
-  m_Radius: 1.8528824
+  m_Radius: 9.05151
 --- !u!4 &878303570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1500719006534030533, guid: 36a809e705bd6e948af95fb2e83a3465, type: 3}
@@ -25351,7 +25351,7 @@ Animator:
   m_GameObject: {fileID: 7493977352084576214}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 37e0bc9d9784164428684405e47c705f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 05d525c8ff4f04b42a6cd5c2459dfa7b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -25501,7 +25501,7 @@ GameObject:
   - component: {fileID: 874029690}
   - component: {fileID: 7493977352084576220}
   m_Layer: 0
-  m_Name: Enemy_Eye
+  m_Name: Enemy_Blob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25618,13 +25618,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee2b36f358051045b0acc698f2b7a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyClass: 0
-  baseHealth: 15
+  enemyClass: 6
+  baseHealth: 5
   baseDamage: 0
   baseMaxSpeed: 10
-  baseStoppingDistance: 5
-  baseAttackDistance: 6
-  baseAttackInterval: 2
+  baseStoppingDistance: 0
+  baseAttackDistance: 0
+  baseAttackInterval: 0
   spawnWave: 0
   skills: []
   isRangedAttacker: 0
@@ -25687,7 +25687,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f2ebd6b67170400459416d560add6722, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf200aa6d7a233645b86c86bd0cc0e62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
