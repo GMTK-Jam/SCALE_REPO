@@ -28,7 +28,7 @@ public class Eye : Limb
     private Queue<Blob> blobsToGenerate = new Queue<Blob>();
     public Transform eyeBlobParent;
     public int[] eyeXP;
-    public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
+    public override int[] xpThresholds { get; } = { 200, 800, 2400 }; // Example values
 
     public override int[] stagesWeight { get; } = { 100, 200, 300, 400 };
 

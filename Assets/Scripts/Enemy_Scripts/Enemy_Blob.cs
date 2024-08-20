@@ -31,7 +31,7 @@ public class Enemy_Blob : BaseEnemy
     }
     protected override float CalculateHealth()
     {
-        return baseHealth + 4 * spawnWave;
+        return baseHealth + 2 * spawnWave;
     }
 
     protected override void PerformSkill()

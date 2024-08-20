@@ -17,7 +17,7 @@ public class Lung : Limb
     public float timeBetweenKeyframes;
 
     // Define the XP thresholds specific to Heart
-    public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
+    public override int[] xpThresholds { get; } = { 200, 800, 2400 }; // Example values
     public override int[] stagesWeight { get; } = { 100, 200, 300, 400 };
 
     void Start()

@@ -13,7 +13,7 @@ public class Enemy_Ranged : BaseEnemy
 
     protected override float CalculateHealth()
     {
-        return baseHealth + 4 * spawnWave;
+        return baseHealth + 3 * spawnWave;
     }
 
     protected override void PerformSkill()

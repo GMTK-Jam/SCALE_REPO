@@ -25,7 +25,7 @@ public class Leg : Limb
     private float currAngle;
 
     private Vector3 mousePos;
-    public override int[] xpThresholds { get; } = { 100, 200, 300 }; // Example values
+    public override int[] xpThresholds { get; } = { 200, 800, 2400 }; // Example values
     public override int[] stagesWeight { get; } = { 100, 200, 300, 400 };
 
     public List<float> animSpeedForLevels;

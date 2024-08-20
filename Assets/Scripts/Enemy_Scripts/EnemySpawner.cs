@@ -32,7 +32,8 @@ public class EnemySpawner : MonoBehaviour
             int waveIndex = i;
             Wave wave = waves[waveIndex];
 
-            yield return new WaitForSeconds(wave.spawnStartTime);
+            // Wait until the start time of this wave
+            yield return new WaitForSeconds(wave.spawnStartTime - (i == 0 ? 0 : waves[i - 1].spawnStartTime));
 
             Coroutine waveCoroutine = StartCoroutine(SpawnWave(waveIndex));
             activeWaveCoroutines.Add(waveCoroutine);
@@ -42,6 +43,7 @@ public class EnemySpawner : MonoBehaviour
     IEnumerator SpawnWave(int waveIndex)
     {
         Wave wave = waves[waveIndex];
+        int currentWaveCount = 0;
 
         while (true)
         {
@@ -57,7 +59,6 @@ public class EnemySpawner : MonoBehaviour
                     );
 
                     GameObject enemy = Instantiate(wave.enemyPrefabs[i], spawnPosition, Quaternion.identity);
-                    enemy.GetComponent<BaseEnemy>().spawnWave = waveIndex;
                     activeEnemies.Add(enemy);
                     enemy.AddComponent<EnemyTracker>().OnDestroyed += () => activeEnemies.Remove(enemy);
 
@@ -66,16 +67,23 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
 
+            currentWaveCount++;
+
+            // Wait until all enemies in the current wave are destroyed
             yield return new WaitUntil(() => activeEnemies.Count == 0);
 
-            // If it's the last wave or the next wave hasn't started yet, respawn this wave
-            if (waveIndex == waves.Length - 1 || Time.time < waves[waveIndex + 1].spawnStartTime)
+            // Check if this is the last wave
+            if (waveIndex == waves.Length - 1)
             {
-                continue; 
+                // Respawn the last wave infinitely
+                continue;
             }
-            else
+
+            // If not the last wave, check if the next wave's spawn time has been reached
+            float nextWaveSpawnTime = waves[waveIndex + 1].spawnStartTime;
+            if (Time.time >= nextWaveSpawnTime)
             {
-                break; 
+                break;
             }
         }
     }
