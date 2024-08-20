@@ -84,7 +84,7 @@ MonoBehaviour:
   radius: 1.8
   height: 2
   canMove: 1
-  maxSpeed: 10
+  maxSpeed: 25
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -267,6 +267,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   playerDamagedEvent: {fileID: 11400000, guid: b5231e2fa82095e44a4adbb2d9a5bb04, type: 2}
+  attacked: 0
 --- !u!82 &1174244921418123762
 AudioSource:
   m_ObjectHideFlags: 0

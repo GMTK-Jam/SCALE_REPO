@@ -197,8 +197,9 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   playerDamagedEvent: {fileID: 11400000, guid: b5231e2fa82095e44a4adbb2d9a5bb04, type: 2}
+  attacked: 0
   bullet: {fileID: 7015744364238824537, guid: 1dd5899b205cac04bbf8a354da84a126, type: 3}
-  bulletSpeed: 10
+  bulletSpeed: 20
 --- !u!95 &1168919971865466259
 Animator:
   serializedVersion: 5

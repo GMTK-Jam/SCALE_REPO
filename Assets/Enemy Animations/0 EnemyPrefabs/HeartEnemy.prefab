@@ -85,7 +85,7 @@ MonoBehaviour:
   radius: 1.8
   height: 2
   canMove: 1
-  maxSpeed: 10
+  maxSpeed: 12
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2

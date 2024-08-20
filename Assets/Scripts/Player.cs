@@ -279,7 +279,7 @@ public class Player : MonoBehaviour
     void AddBaseXP()
     {
         // Prevent further XP gains if the level is 3
-        if (baseXPLevel >= 3)
+        if (baseXPLevel >= 10)
         {
             Debug.Log("Maximum level reached. No further XP increase.");
             return;
@@ -297,7 +297,7 @@ public class Player : MonoBehaviour
             Debug.Log("Upgraded to level " + baseXPLevel);
 
             // Check if we have reached the maximum obtainable level
-            if (baseXPLevel >= 3)
+            if (baseXPLevel >= 10)
             {
                 Debug.Log("Maximum level reached.");
             }
@@ -310,7 +310,7 @@ public class Player : MonoBehaviour
     {
         baseXPText.text = "LV" + (baseXPLevel + 1).ToString();
         // If at the maximum level, keep the slider full
-        if (baseXPLevel >= 3)
+        if (baseXPLevel >= 10)
         {
             baseXPSlider.value = 1f;
             return;
