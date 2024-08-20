@@ -38,7 +38,8 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     protected Rigidbody2D _rigidbody2D;
     private float _lastDamageTime; // Time since last damage taken
-
+    public delegate void EnemyDestroyed();
+    public event EnemyDestroyed OnEnemyDestroyed;
     protected virtual void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -60,6 +61,11 @@ public class Enemy : MonoBehaviour
             // flip sprite in x direction if moving left
             _spriteRenderer.flipX = direction.x < 0;
         }
+    }
+
+    private void OnDestroy()
+    {
+        OnEnemyDestroyed?.Invoke();
     }
 
     virtual protected Vector2 DetermineDirection(GameObject player)
