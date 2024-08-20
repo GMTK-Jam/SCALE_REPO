@@ -20,7 +20,7 @@ public class Enemy_Ranged : BaseEnemy
     {
     }
 
-    protected override void PerformedAttack()
+    public override void PerformedAttack()
     {
         base.PerformedAttack();
         Projectile projectile = Instantiate(bullet.gameObject,transform.position,Quaternion.identity).GetComponent<Projectile>();

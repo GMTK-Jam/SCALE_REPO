@@ -18,7 +18,7 @@ public class Enemy_Blob : BaseEnemy
     {
     }
 
-    protected override void PerformedAttack()
+    public override void PerformedAttack()
     {
         base.PerformedAttack();
         StartCoroutine(DeathSequence());

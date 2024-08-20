@@ -115,7 +115,7 @@ public abstract class BaseEnemy : MonoBehaviour
     }
 
     // Attack animation reached hitting frames, check for collision, reset timer;
-    protected virtual void PerformedAttack()
+    public virtual void PerformedAttack()
     {
         attackTimer = baseAttackInterval;
         Blob damagedBlob = EvaluateAttackCollision();

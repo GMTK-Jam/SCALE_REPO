@@ -85,8 +85,10 @@ public class EnemyAnimator : MonoBehaviour
         {
             return;
         }
-        _baseEnemyController.SendMessage("PerformedAttack");
+        _baseEnemyController.PerformedAttack();
     }
+
+    
 }
 
 public enum EnemyAnimationState
