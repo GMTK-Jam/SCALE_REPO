@@ -126,7 +126,10 @@ public abstract class BaseEnemy : MonoBehaviour
             LimbClass damagedLimb = damagedBlob.limbMaster;
             RaiseDamageEvent(damagedLimb);
         }
-        _enemyAnimator.StartDefaultAnimation();
+        if (enemyClass != EnemyClass.Blob)
+        {
+            _enemyAnimator.StartDefaultAnimation();
+        }
     }
 
     protected virtual Blob EvaluateAttackCollision()
@@ -158,6 +161,7 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         DamageInfo damageInfo = new DamageInfo(baseDamage, enemyClass, damagedLimb);
         playerDamagedEvent.Raise(damageInfo);
+        Debug.Log("[DAMAGE] Player took " + baseDamage + " damage");
     }
 
 
@@ -197,6 +201,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _enemyAnimator.TakeDamage();
+        Debug.Log("[DAMAGE] "+enemyClass.ToString() + " took " + damage + " damage");
         baseHealth -= damage;
         if (baseHealth <= 0)
         {
@@ -219,19 +224,22 @@ public abstract class BaseEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(gameObject.name + " collided with " + collision.gameObject.name);
         if(collision.gameObject.layer == 10)
         {
             Arm arm;
             Leg leg;
             float ap = 0;
-            if (collision.gameObject.TryGetComponent<Arm>(out arm))
+            
+            if (collision.gameObject.transform.parent.TryGetComponent<Arm>(out arm))
             {
                 ap = arm.GetAttackPower();
             }
-            else if (collision.gameObject.TryGetComponent<Leg>(out leg))
+            else if (collision.gameObject.transform.parent.TryGetComponent<Leg>(out leg))
             {
                 ap = leg.GetAttackPower();
             }
+            Debug.Log("Player Attack Power:" + ap);
             TakeDamage((int)ap);
 
         }
