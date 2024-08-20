@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Enemy_Ranged : BaseEnemy
 {
-    public Projectile bullet;
+    public GameObject bullet;
     public float bulletSpeed;
-    public float range;
-
     protected override void Start()
     {
         base.Start();
@@ -30,7 +28,7 @@ public class Enemy_Ranged : BaseEnemy
         projectile.target = playerTarget;
         projectile.filter = damageContactFilter;
         projectile.speed = bulletSpeed;
-        projectile.range = range;
+        projectile.range = baseAttackDistance;
     }
 
     public void ProjectileHit(LimbClass damagedLimb)

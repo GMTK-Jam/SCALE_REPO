@@ -31,19 +31,6 @@ public class CustomEvent : ScriptableObject
     }
 }
 
-
-[CreateAssetMenu(menuName = "DamageEvent")]
-public class CustomDamageEvent : CustomEvent
-{
-    public void Raise(DamageInfo info)
-    {
-        foreach (CustomEventListener listener in listeners)
-        {
-            listener.OnEventRaised();
-        }
-    }
-}
-
 public class DamageInfo
 {
     public float damage;

@@ -125,6 +125,7 @@ public abstract class BaseEnemy : MonoBehaviour
             LimbClass damagedLimb = damagedBlob.limbMaster;
             RaiseDamageEvent(damagedLimb);
         }
+        _enemyAnimator.StartDefaultAnimation();
     }
 
     protected virtual Blob EvaluateAttackCollision()

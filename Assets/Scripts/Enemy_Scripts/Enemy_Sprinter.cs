@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Arm : BaseEnemy
+public class Enemy_Sprinter : BaseEnemy
 {
 
     [Header("冲刺配置")]
