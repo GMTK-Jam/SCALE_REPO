@@ -5,11 +5,11 @@ using System;
 
 public class Projectile : MonoBehaviour
 {
-    public Enemy_Ranged source;
-    public Transform target;
-    public ContactFilter2D filter;
-    public float speed;
-    public float range;
+    public Enemy_Ranged source { get; set; }
+    public Transform target { get; set; }
+    public ContactFilter2D filter { get; set; }
+    public float speed { get; set; }
+    public float range { get; set; }
     private Vector3 direction;
     private float distanceTravelled = 0;
     private bool exploding = false;
