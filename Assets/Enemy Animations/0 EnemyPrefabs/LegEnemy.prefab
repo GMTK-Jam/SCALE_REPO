@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3351475207040605557}
   - component: {fileID: 3356224196592891040}
   - component: {fileID: 5150658348653544024}
+  - component: {fileID: 9006121813776916671}
   m_Layer: 12
   m_Name: LegEnemy
   m_TagString: Untagged
@@ -258,7 +259,8 @@ MonoBehaviour:
   isRangedAttacker: 0
   deathStainTime: 2
   damageFreezeTime: 1
-  DamageColliders: []
+  DamageColliders:
+  - {fileID: 9006121813776916671}
   damageContactFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -280,3 +282,19 @@ MonoBehaviour:
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!58 &9006121813776916671
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351475207040605567}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 13.877525, y: 0}
+  serializedVersion: 2
+  m_Radius: 10.188056
