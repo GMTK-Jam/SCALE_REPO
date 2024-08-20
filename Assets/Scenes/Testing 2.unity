@@ -4579,7 +4579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 323796470}
   - component: {fileID: 323796471}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmTwoCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9088,7 +9088,7 @@ GameObject:
   - component: {fileID: 663825298}
   - component: {fileID: 663825300}
   - component: {fileID: 663825299}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegDamageCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22680,7 +22680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1532112633}
   - component: {fileID: 1532112634}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmOneCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23202,7 +23202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533137c0ffec53f4ea1ed04a71540a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cineCamera: {fileID: 0}
   healthInt: 70
   healthMaxInt: 70
   recoveryPerSecond: 1
