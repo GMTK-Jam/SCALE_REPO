@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4919161778761135323}
   - component: {fileID: 4964263332354430026}
   - component: {fileID: 4964263332354430029}
+  - component: {fileID: 8837020742528461338}
   m_Layer: 12
   m_Name: BlobEnemy
   m_TagString: Untagged
@@ -232,6 +233,7 @@ MonoBehaviour:
   isRangedAttacker: 0
   deathStainTime: 2
   damageFreezeTime: 0
+  exp: {fileID: 0}
   DamageColliders: []
   damageContactFilter:
     useTriggers: 0
@@ -264,3 +266,15 @@ CircleCollider2D:
   m_Offset: {x: -0.1735096, y: 0.9542959}
   serializedVersion: 2
   m_Radius: 6.4744763
+--- !u!114 &8837020742528461338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4919161778761135313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a4951a3b17a7a4593509b8df5a5efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
