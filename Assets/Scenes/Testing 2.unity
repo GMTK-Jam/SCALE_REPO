@@ -25351,7 +25351,7 @@ Animator:
   m_GameObject: {fileID: 7493977352084576214}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 05d525c8ff4f04b42a6cd5c2459dfa7b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 170033e7fa9a15a42a9a80fa1969aa30, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -25501,7 +25501,7 @@ GameObject:
   - component: {fileID: 874029690}
   - component: {fileID: 7493977352084576220}
   m_Layer: 0
-  m_Name: Enemy_Blob
+  m_Name: Enemy_Lung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
