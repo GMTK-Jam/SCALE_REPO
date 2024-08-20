@@ -223,7 +223,7 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             Arm arm;
             Leg leg;
-            float ap;
+            float ap = 0;
             if (collision.gameObject.TryGetComponent<Arm>(out arm))
             {
                 ap = arm.GetAttackPower();
