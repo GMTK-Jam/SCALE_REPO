@@ -69,6 +69,9 @@ public class Player : MonoBehaviour
     public int baseXP;
     public int[] baseXPStages;
     public int baseXPLevel = 0;
+    public Slider baseXPSlider;
+    public TextMeshProUGUI baseXPText;
+
 
     /*    private Dictionary<GameObject, float> _lastDamageTimeByEnemy = new Dictionary<GameObject, float>();
 */
@@ -87,6 +90,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        upgradeScreen.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         uiOverlay.SetActive(false);
         sprintTimer = sprintLength;
@@ -288,6 +292,8 @@ public class Player : MonoBehaviour
         if (baseXPLevel < baseXPStages.Length && baseXP >= baseXPStages[baseXPLevel])
         {
             baseXPLevel++; // Upgrade to the next level
+            upgradeScreen.SetActive(true);
+            Time.timeScale = 0.2f;
             Debug.Log("Upgraded to level " + baseXPLevel);
 
             // Check if we have reached the maximum obtainable level
@@ -296,7 +302,62 @@ public class Player : MonoBehaviour
                 Debug.Log("Maximum level reached.");
             }
         }
+
+        UpdateBaseXPSlider();
     }
+
+    void UpdateBaseXPSlider()
+    {
+        baseXPText.text = "LV" + (baseXPLevel + 1).ToString();
+        // If at the maximum level, keep the slider full
+        if (baseXPLevel >= 3)
+        {
+            baseXPSlider.value = 1f;
+            return;
+        }
+
+        // Get the current and next stage XP thresholds
+        int currentLevelXPThreshold = baseXPLevel == 0 ? 0 : baseXPStages[baseXPLevel - 1];
+        int nextLevelXPThreshold = baseXPStages[baseXPLevel];
+
+        // Calculate the progress within the current level
+        float progress = (float)(baseXP - currentLevelXPThreshold) / (nextLevelXPThreshold - currentLevelXPThreshold);
+
+        // Update the slider value
+        baseXPSlider.value = progress;
+    }
+
+    public void UpgradeOrgan(string organName)
+    {
+
+        if(organName == "heart")
+        {
+            heart.AddXP(heart.xpThresholds[heart.stage]);
+        }
+        if (organName == "arm")
+        {
+            arm.AddXP(arm.xpThresholds[arm.stage]);
+        }
+        if (organName == "leg")
+        {
+            leg.AddXP(leg.xpThresholds[leg.stage]);
+        }
+        if (organName == "lung")
+        {
+            leg.AddXP(lung.xpThresholds[lung.stage]);
+        }
+        if (organName == "eye")
+        {
+            eye.AddXP(eye.xpThresholds[eye.stage]);
+        }
+        if (organName == "mouth")
+        {
+            mouth.AddXP(mouth.xpThresholds[mouth.stage]);
+        }
+        upgradeScreen.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
 
     public IEnumerator UpgradeMaxHealth(int newHealthInt, float newSecondsCount)
     {
