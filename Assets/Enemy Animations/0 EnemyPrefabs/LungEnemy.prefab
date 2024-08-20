@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6333616668007104203}
   - component: {fileID: 3511319928282278906}
   - component: {fileID: 6288505489131675228}
+  - component: {fileID: 240641419504379122}
   m_Layer: 12
   m_Name: LungEnemy
   m_TagString: Untagged
@@ -147,6 +148,7 @@ MonoBehaviour:
   isRangedAttacker: 1
   deathStainTime: 1
   damageFreezeTime: 0.2
+  exp: {fileID: 0}
   DamageColliders: []
   damageContactFilter:
     useTriggers: 0
@@ -163,7 +165,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   playerDamagedEvent: {fileID: 11400000, guid: b5231e2fa82095e44a4adbb2d9a5bb04, type: 2}
-  bullet: {fileID: 8432132894247168847, guid: 1dd5899b205cac04bbf8a354da84a126, type: 3}
+  bullet: {fileID: 0}
   bulletSpeed: 12
 --- !u!95 &4520847561250275698
 Animator:
@@ -266,3 +268,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &240641419504379122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6288505489131675222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a4951a3b17a7a4593509b8df5a5efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
