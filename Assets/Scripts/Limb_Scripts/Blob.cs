@@ -31,6 +31,7 @@ public class Blob : MonoBehaviour
     public LimbClass limbMaster;
     private float damageFrameTime = 1;
     private bool inDamageFrame = false;
+    private float scaleChangeFactor = 1.08f;
 
     // Start is called before the first frame update
     void Start()
@@ -118,6 +119,8 @@ public class Blob : MonoBehaviour
 
     private IEnumerator SwitchSprite(int startIndex)
     {
+        Vector3 defaultScale = transform.localScale;
+
         while (true)
         {
             if (inDamageFrame)
@@ -128,10 +131,12 @@ public class Blob : MonoBehaviour
             yield return new WaitForSeconds(UnityEngine.Random.Range(0.3f, 1.2f));
 
             spriteRenderer.sprite = sprites[startIndex + 1];
+            transform.localScale = defaultScale;
 
             yield return new WaitForSeconds(UnityEngine.Random.Range(0.3f, 1.2f));
 
             spriteRenderer.sprite = sprites[startIndex];
+            transform.localScale = new Vector3(defaultScale.x * scaleChangeFactor, defaultScale.y * scaleChangeFactor, defaultScale.z);
         }
     }
 
