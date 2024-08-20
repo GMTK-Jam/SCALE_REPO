@@ -23,10 +23,14 @@ public class Blob : MonoBehaviour
     [Range(0.1f, 5f)] public float growTime;
     [SerializeField]
     private Sprite[] sprites;
+    [SerializeField]
+    private Sprite damageSprite;
     private int randomIndex;
     public bool changeSort = true;
 
     public LimbClass limbMaster;
+    private float damageFrameTime = 1;
+    private bool inDamageFrame = false;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +77,24 @@ public class Blob : MonoBehaviour
         }
     }
 
+    public void EnterDamageFrame()
+    {
+        StartCoroutine(SwitchDamageFrame());
+        // Play sound
+    }
+
+    
+
+    private IEnumerator SwitchDamageFrame()
+    {
+        inDamageFrame = true;
+        Sprite sprite = spriteRenderer.sprite;
+        spriteRenderer.sprite = damageSprite;
+        yield return new WaitForSeconds(damageFrameTime);
+        spriteRenderer.sprite = sprite;
+        inDamageFrame = false;
+    }
+
     int CountObjectsWithLayer(string layerName)
     {
         int layer = LayerMask.NameToLayer(layerName);
@@ -94,6 +116,11 @@ public class Blob : MonoBehaviour
     {
         while (true)
         {
+            if (inDamageFrame)
+            {
+                continue;
+            }
+
             yield return new WaitForSeconds(UnityEngine.Random.Range(0.3f, 1.2f));
 
             spriteRenderer.sprite = sprites[startIndex + 1];
