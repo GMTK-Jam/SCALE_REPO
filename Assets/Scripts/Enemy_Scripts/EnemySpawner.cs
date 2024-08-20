@@ -57,6 +57,7 @@ public class EnemySpawner : MonoBehaviour
                     );
 
                     GameObject enemy = Instantiate(wave.enemyPrefabs[i], spawnPosition, Quaternion.identity);
+                    enemy.GetComponent<BaseEnemy>().spawnWave = waveIndex;
                     activeEnemies.Add(enemy);
                     enemy.AddComponent<EnemyTracker>().OnDestroyed += () => activeEnemies.Remove(enemy);
 
