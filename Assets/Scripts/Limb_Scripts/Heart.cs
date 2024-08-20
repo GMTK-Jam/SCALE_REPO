@@ -9,7 +9,7 @@ public class Heart : Limb
     [Tooltip("How many new blobs to generate for each level up")]
     public List<int> blobStages;
     public List<int> hpStages;
-    public List<int> hpIncStages;
+    public List<float> hpIncStages;
 
     private Queue<Blob> blobsToGenerate = new Queue<Blob>();
     public Transform heartBlobParent;

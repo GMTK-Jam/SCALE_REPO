@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     #region PlayerStats
     public int healthInt = 100;
     public int healthMaxInt = 100;
-    public int recoveryPerSecond = 1;
+    public float recoveryOneTime = 1.0f;  // Recovery time in seconds per health point
+    private float recoveryTimer = 0f;
     private int scaleInt = 0;
     private int xpInt = 0;
     public float pickupDistance = 10f;
@@ -97,6 +98,18 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+
+        if (healthInt < healthMaxInt)
+        {
+            recoveryTimer += Time.deltaTime;
+            if (recoveryTimer >= recoveryOneTime)
+            {
+                recoveryTimer = 0f;
+                healthInt++;
+                healthSlider.value = (float)healthInt / healthMaxInt;
+            }
+        }
+
         heartText.text = healthInt.ToString() + "/" + healthMaxInt.ToString();
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -243,10 +256,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public IEnumerator UpgradeMaxHealth(int newHealthInt, int newIncreaseRate)
+    public IEnumerator UpgradeMaxHealth(int newHealthInt, float newSecondsCount)
     {
         healthMaxInt = newHealthInt;
-        recoveryPerSecond = newIncreaseRate;
+        recoveryOneTime = newSecondsCount;
         SubtractHealth(0);
         Vector3 initialScale = healthSlider.transform.localScale;
         float targetScaleX = 0.38f * (newHealthInt / 70f);

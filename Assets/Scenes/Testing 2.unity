@@ -4763,7 +4763,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blobStages: 00000000040000000300000003000000
   hpStages: 460000006400000096000000c8000000
-  hpIncStages: 01000000020000000300000004000000
+  hpIncStages:
+  - 3
+  - 2
+  - 1
+  - 0.7
   heartBlobParent: {fileID: 1571992087}
   _heartSpriteAnim: {fileID: 2131092177}
   timeBetweenKeyframes: 1
@@ -5840,6 +5844,7 @@ MonoBehaviour:
   - 1.2
   - 1.4
   - 1.6
+  attackPowerbyStage: []
 --- !u!61 &558533046
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19088,7 +19093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthInt: 70
   healthMaxInt: 70
-  recoveryPerSecond: 1
+  recoveryOneTime: 1
   pickupDistance: 30
   pickupSpeed: 10
   _damageCooldown: 2
@@ -21515,6 +21520,7 @@ MonoBehaviour:
   - 1.2
   - 1.4
   - 1.6
+  attackPowerbyStage: []
 --- !u!95 &1766386778
 Animator:
   serializedVersion: 5
@@ -21752,6 +21758,7 @@ MonoBehaviour:
   - 30
   - 40
   - 50
+  attackPowerbyStage: 
   growTime: 1
   weightIndex: 800
 --- !u!114 &1774200785
@@ -23193,6 +23200,7 @@ MonoBehaviour:
   - 30
   - 40
   - 50
+  attackPowerbyStage: 
   growTime: 1
   weightIndex: 0
 --- !u!114 &1963429279
