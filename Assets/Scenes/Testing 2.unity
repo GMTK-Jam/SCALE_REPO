@@ -7027,7 +7027,7 @@ Camera:
   far clip plane: 1000
   field of view: 30.00002
   orthographic: 1
-  orthographic size: 35
+  orthographic size: 50
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -22346,6 +22346,93 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36a809e705bd6e948af95fb2e83a3465, type: 3}
+--- !u!1 &1496524189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1496524191}
+  - component: {fileID: 1496524190}
+  m_Layer: 0
+  m_Name: A*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1496524190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496524189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAACAn+uSldRdWQIAABYFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMty2jAU/RVG6yZjoKTQXesQ0gWBCelk442wrrEGWfLowXP4917JNnbd6QpxzrlX5z7kK+HSlJBapReas6ViQL4PiD+TL4OWfIUT3Sm54RdoNJ+c2dyLaNC8U8sV4kMfZlQBVvP0h9wJL44QdJJnShdztoNYGWsQzqgwgJRW1kdLhK4DcsKfh5kPOeNp9M2fLniaRYMbHlOQFnQrbYSNrFI5mQpalMC85VY8ihr5MKqEEsupNSOfXQnBTe2F2HMZao1paRxWggLGKdYWDAwfJwjkwHe57YevssyArW1pen7mGptU5SU/VdW5gpp95e1AhQsWJk/BVZV0+Q//MAx0plXx2tw7DDXZnKf7d3pOqbGd1nbh54710KIjFXu6FfCZg3xTC62cZEha7XyoMzB6bv/eS4tzSPctXlntga78/4B8DbdQ/SkWvNh66vFrBWyECh0P4weNs/mFhsNymDoFot7FbwMfdNfdopp44dpYpOoqpbe3VU57KZmHnvlqnI2VlhDg2nQJkgp7XmMa2x9hj+tc22NeqH8v9eU11zyDXkiAW30U9ai1Ot6HZXJ1XILJV84KLqE17Yk37FOspKw2rNuTJmzjdEbTTtjOcfb3apHxmM22bJxtKUxoNM0ethM6G7PRJBtOZ2wKTyTsHpdYJxXrymjdHpyabJNL3LPmMzJYaFqGbWeaHhf8UqhOy7nM1CbVAHJVZbgbB42X4Ltkc8axQRuwlsswb3JNiFDpHlhyT5SESucnq2nSZklIyQ/KeiQhcfhuJMTD911eazhwOPrLm2Q3cvsDUEsDBBQAAAgIAACAn+u9NOKzbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSsXGKZVKKcVpSYqppooFFmm6SaaKlcYqRaZqhhWWKRaqZUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACAn+uSldRdWQIAABYFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACAn+u9NOKzbQAAAHgAAAAJACQAAAAAAAAAAAAAAKYCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAXgMAAAAA
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 1
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &1496524191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496524189}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1137.9827, y: 570.33777, z: -5.0627537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1513162666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1500719006534030533, guid: 95fc7e94ab87aaf4e86bd9f084a5eaa5, type: 3}
@@ -23117,7 +23204,7 @@ GameObject:
   - component: {fileID: 1553126634}
   - component: {fileID: 1553126633}
   - component: {fileID: 1553126632}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Human
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23853,7 +23940,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1553126622}
   m_Lens:
     FieldOfView: 30.00002
-    OrthographicSize: 35
+    OrthographicSize: 50
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

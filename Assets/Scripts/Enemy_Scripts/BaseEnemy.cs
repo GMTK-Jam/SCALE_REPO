@@ -49,7 +49,7 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTarget = FindObjectOfType<Player>().transform;
         if (playerTarget == null)
         {
             Debug.LogError("Player not found in the scene.");
