@@ -4,11 +4,31 @@ using UnityEngine;
 
 public class Enemy_Blob : BaseEnemy
 {
+
+    private bool startedDeath;
     protected override void Start()
     {
         base.Start();
     }
 
+
+    private void Update()
+    {
+        if(attacked == false)
+        {
+            EvaluateAttackCollision();
+
+        }
+        else
+        {
+            if (startedDeath == false)
+            {
+                StartCoroutine(DeathSequence());
+                startedDeath = true;
+            }
+
+        }
+    }
     protected override float CalculateHealth()
     {
         return baseHealth + 4 * spawnWave;

@@ -47,6 +47,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public List<Collider2D> DamageColliders;
     public ContactFilter2D damageContactFilter;
     public CustomDamageEvent playerDamagedEvent;
+    public bool attacked;
 
     // ##############  Enemy Initialization ############## //
 
@@ -155,8 +156,8 @@ public abstract class BaseEnemy : MonoBehaviour
                 {
                     blobCollider.GetComponent<Blob>().EnterDamageFrame();
                 }
-
                 Blob firstDamagedBlob = results[0].GetComponent<Blob>();
+                attacked = true;
                 return firstDamagedBlob;
             }
         }

@@ -17576,6 +17576,9 @@ MonoBehaviour:
   sprintSlider: {fileID: 1202967678}
   xpClip: {fileID: 8300000, guid: eb5baabbb3852c548822941b853e8dff, type: 3}
   hurtClip: {fileID: 8300000, guid: 4fbd4ef03f060a64da6c4eeb005b79b7, type: 3}
+  baseXP: 0
+  baseXPStages: c80000009001000020030000
+  baseXPLevel: 0
 --- !u!82 &1553126632
 AudioSource:
   m_ObjectHideFlags: 0

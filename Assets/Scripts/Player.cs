@@ -66,7 +66,9 @@ public class Player : MonoBehaviour
 
     public AudioClip xpClip;
     public AudioClip hurtClip;
-
+    public int baseXP;
+    public int[] baseXPStages;
+    public int baseXPLevel = 0;
 
     /*    private Dictionary<GameObject, float> _lastDamageTimeByEnemy = new Dictionary<GameObject, float>();
 */
@@ -261,7 +263,39 @@ public class Player : MonoBehaviour
         {
             lung.AddXP(xpCount);
         }
+        if (xpType == "base")
+        {
+            AddBaseXP();
+        }
         GetComponent<AudioSource>().PlayOneShot(xpClip);
+    }
+
+
+
+    void AddBaseXP()
+    {
+        // Prevent further XP gains if the level is 3
+        if (baseXPLevel >= 3)
+        {
+            Debug.Log("Maximum level reached. No further XP increase.");
+            return;
+        }
+
+        // Add XP
+        baseXP += 20;
+
+        // Check if baseXP exceeds the next stage threshold
+        if (baseXPLevel < baseXPStages.Length && baseXP >= baseXPStages[baseXPLevel])
+        {
+            baseXPLevel++; // Upgrade to the next level
+            Debug.Log("Upgraded to level " + baseXPLevel);
+
+            // Check if we have reached the maximum obtainable level
+            if (baseXPLevel >= 3)
+            {
+                Debug.Log("Maximum level reached.");
+            }
+        }
     }
 
     public IEnumerator UpgradeMaxHealth(int newHealthInt, float newSecondsCount)

@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5079facb8c3a16e48bf55479012b0632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyClass: 6
+  enemyClass: 0
   baseHealth: 10
   baseDamage: 5
   baseMaxSpeed: 10
@@ -234,7 +234,7 @@ MonoBehaviour:
   isRangedAttacker: 0
   deathStainTime: 2
   damageFreezeTime: 0
-  exp: {fileID: 0}
+  exp: {fileID: 5429348461832209578, guid: 7a94a9603ba98924c95e1df3108db37f, type: 3}
   DamageColliders:
   - {fileID: 4964263332354430029}
   damageContactFilter:
@@ -252,6 +252,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   playerDamagedEvent: {fileID: 11400000, guid: b5231e2fa82095e44a4adbb2d9a5bb04, type: 2}
+  attacked: 0
 --- !u!58 &4964263332354430029
 CircleCollider2D:
   m_ObjectHideFlags: 0
