@@ -26,6 +26,8 @@ public class Arm : Limb
         _anim = GetComponent<Animator>();
         _anim.speed = 1;
         transform.parent.localScale = new Vector3(armScales[0],armScales[0], armScales[0]);
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false); //disable colliders
 
 
     }
@@ -40,6 +42,19 @@ public class Arm : Limb
         _anim.speed = 0;
         yield return new WaitForSeconds(animPauseFrames[stage]/60);
         _anim.speed = 1;
+    }
+    public void AttackStart()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(true);
+
+    }
+
+    public void AttackEnd()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
