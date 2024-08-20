@@ -31,10 +31,14 @@ public class EnemyAnimator : MonoBehaviour
 
     public void StartAttackAnimation()
     {
+
         if (currState == EnemyAnimationState.Default)
         {
+            Debug.Log(gameObject.name + "starting attack animation");
+
             _animator.SetBool("Attacking",true);
             currState = EnemyAnimationState.Attack;
+            _animator.ResetTrigger("Default");
         }
         else
         {
@@ -46,9 +50,11 @@ public class EnemyAnimator : MonoBehaviour
     {
         if (currState != EnemyAnimationState.Default)
         {
-            _animator.SetTrigger("Default");
-            _animator.ResetTrigger("Default");
+
+            Debug.Log(gameObject.name + "starting default animation");
+
             _animator.SetBool("Attacking", false);
+            _animator.SetTrigger("Default");
             currState = EnemyAnimationState.Default;
         }
     }
@@ -57,6 +63,8 @@ public class EnemyAnimator : MonoBehaviour
     {
         if (currState != EnemyAnimationState.Death)
         {
+            Debug.Log(gameObject.name + "starting death animation");
+
             _animator.SetBool("Death",true);
             currState = EnemyAnimationState.Death;
         }
@@ -66,8 +74,7 @@ public class EnemyAnimator : MonoBehaviour
     {
         if (currState != EnemyAnimationState.Death)
         {
-            _animator.SetTrigger("TakeDamage");
-            _animator.ResetTrigger("TakeDamage");
+            _animator.SetTrigger("TakeDamage");            
         }
     }
 

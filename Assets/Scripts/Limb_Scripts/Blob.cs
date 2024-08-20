@@ -56,8 +56,8 @@ public class Blob : MonoBehaviour
             }
             else
             {
-                Debug.Log($"Sprite at index {i} loaded successfully: {sprites[i].name}");
-            }
+/*                Debug.Log($"Sprite at index {i} loaded successfully: {sprites[i].name}");
+*/            }
         }
     }
 
