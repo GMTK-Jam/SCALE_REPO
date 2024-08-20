@@ -20,6 +20,13 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Testing 2");
+        SceneManager.LoadScene("Testing_Hannah");
+
+
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
