@@ -4,12 +4,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using Cinemachine;
 
 public class Player : MonoBehaviour
 {
     static Player _instance;
-    public CinemachineVirtualCamera cineCamera;
     private Rigidbody2D rb;
     private DamageEventListener _damageEventListener;
 
