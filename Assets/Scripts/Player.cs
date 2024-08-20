@@ -8,51 +8,53 @@ using Cinemachine;
 
 public class Player : MonoBehaviour
 {
-    public float moveSpeed;
-    private Vector2 moveInput;
-    private Rigidbody2D rb;
-
-    public List<Limb> limbs = new List<Limb>();
     static Player _instance;
+    public CinemachineVirtualCamera cineCamera;
+    private Rigidbody2D rb;
+    private DamageEventListener _damageEventListener;
+
+    #region PlayerStats
     public int healthInt = 100;
     public int healthMaxInt = 100;
     public int recoveryPerSecond = 1;
-
     private int scaleInt = 0;
     private int xpInt = 0;
-    public Slider healthSlider;
-    public Slider scaleSlider;
-    private int currentLevel = 1;
     public float pickupDistance = 10f;
     public float pickupSpeed = 20f;
     [SerializeField]
     private float _damageCooldown = 2.0f;
-    public TextMeshProUGUI weightText;
+    #endregion
 
-    private Dictionary<GameObject, float> _lastDamageTimeByEnemy = new Dictionary<GameObject, float>();
-
-    public TextMeshProUGUI uiText;
-    public float[] upgradeScales;
-    public GameObject upgradeScreen;
-    public TextMeshProUGUI levelText;
-    public CinemachineVirtualCamera cineCamera;
+    #region Limbs
+    /*    public List<Limb> limbs = new List<Limb>();
+    */
     public Heart heart;
     public Eye eye;
     public Leg leg;
     public Arm arm;
     public Mouth mouth;
     public Lung lung;
+    #endregion
 
+    #region UI
+    public TextMeshProUGUI uiText;
+    public float[] upgradeScales;
+    public GameObject upgradeScreen;
+    public TextMeshProUGUI levelText;
     public Image heartImage;
     public Image eyeImage;
     public Image legImage;
     public Image armImage;
     public Image mouthImage;
     public Image lungImage;
-
     public GameObject uiOverlay;
     public TextMeshProUGUI heartText;
+    public Slider healthSlider;
+    public Slider scaleSlider;
+    public TextMeshProUGUI weightText;
+    #endregion
 
+    #region Sprinting
     public float sprintFactor = 1.5f;
     public float sprintLength = 5f;
     public float recoveryLength = 10f;
@@ -60,6 +62,10 @@ public class Player : MonoBehaviour
     private bool isSprinting = false;
     private bool isRecovering = false;
     public Slider sprintSlider;
+    #endregion
+
+    /*    private Dictionary<GameObject, float> _lastDamageTimeByEnemy = new Dictionary<GameObject, float>();
+*/
 
     public static Player Instance
     {
@@ -80,29 +86,15 @@ public class Player : MonoBehaviour
         sprintTimer = sprintLength;
         sprintSlider.value = 1f;
 
-        foreach (Transform child in transform)
+/*        foreach (Transform child in transform)
         {
             Limb limb;
             if (child.TryGetComponent<Limb>(out limb))
             {
                 limbs.Add(limb);
             }
-        }
+        }*/
 
-    }
-
-    public void Move(Vector2 velocity, float rotation)
-    {
-        if (isSprinting && sprintTimer > 0)
-        {
-            velocity *= sprintFactor;
-        }
-
-        rb.velocity = velocity;
-
-        float targetAngle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-        float smoothedAngle = Mathf.LerpAngle(rb.rotation, targetAngle, Time.deltaTime * 12f);
-        rb.rotation = smoothedAngle;
     }
 
     void Update()
@@ -166,12 +158,24 @@ public class Player : MonoBehaviour
         lungImage.transform.Find("Level").GetComponent<TextMeshProUGUI>().text = "LV" + (lung.stage + 1).ToString();
     }
 
+    public void Move(Vector2 velocity, float rotation)
+    {
+        if (isSprinting && sprintTimer > 0)
+        {
+            velocity *= sprintFactor;
+        }
 
+        rb.velocity = velocity;
 
+        float targetAngle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+        float smoothedAngle = Mathf.LerpAngle(rb.rotation, targetAngle, Time.deltaTime * 12f);
+        rb.rotation = smoothedAngle;
+    }
 
+    // Deprecated
     public void Collide(GameObject collisionObject)
     {
-        if (collisionObject.GetComponent<Enemy>())
+        /*if (collisionObject.GetComponent<Enemy>())
         {
             float currentTime = Time.time;
 
@@ -183,20 +187,35 @@ public class Player : MonoBehaviour
             if (currentTime - lastDamageTime >= _damageCooldown)
             {
                 collisionObject.GetComponent<Enemy>().TakeDamage(10);
-                TakeDamage(10);
+                SubtractHealth(10);
                 Debug.Log("Damage taken from " + collisionObject.name);
 
                 _lastDamageTimeByEnemy[collisionObject] = currentTime;
             }
-        }
+        }*/
     }
 
-    public void TakeDamage(int damageTaken)
+
+    // ##################### Damage Handling ##################### //
+
+    public void SubtractHealth(int damageTaken)
     {
         healthInt -= damageTaken;
         healthInt = Mathf.Clamp(healthInt, 0, healthMaxInt);
         healthSlider.value = (float)healthInt / healthMaxInt;
     }
+
+    public void EvaluateDamageQueue()
+    {
+        DamageInfo damageInfo = _damageEventListener.PopDamage();
+        if (damageInfo == null) return;
+        float rawDamage = damageInfo.damage;
+        float finalDamage = rawDamage; // Enter damage scaling code if needed
+
+        SubtractHealth((int)finalDamage);
+    }
+
+    // ##################### Upgrade Handing ##################### //
 
     public void AddXP(string xpType, int xpCount)
     {
@@ -226,11 +245,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    public IEnumerator UpdateHealth(int newHealthInt, int newIncreaseRate)
+    public IEnumerator UpgradeMaxHealth(int newHealthInt, int newIncreaseRate)
     {
         healthMaxInt = newHealthInt;
         recoveryPerSecond = newIncreaseRate;
-        TakeDamage(0);
+        SubtractHealth(0);
         Vector3 initialScale = healthSlider.transform.localScale;
         float targetScaleX = 0.38f * (newHealthInt / 70f);
         Vector3 targetScale = new Vector3(targetScaleX, initialScale.y, initialScale.z);
@@ -248,7 +267,7 @@ public class Player : MonoBehaviour
         healthSlider.transform.localScale = targetScale;
     }
 
-    public IEnumerator UpdateSprint(float newSprintLentth, float newRecoveryTime)
+    public IEnumerator UpgradeMaxSprint(float newSprintLentth, float newRecoveryTime)
     {
         sprintLength = newSprintLentth;
         recoveryLength = newRecoveryTime;
@@ -268,7 +287,6 @@ public class Player : MonoBehaviour
 
         sprintSlider.transform.localScale = targetScale;
     }
-
 
     public int CalculateWeight()
     {

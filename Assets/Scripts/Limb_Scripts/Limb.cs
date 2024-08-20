@@ -9,10 +9,7 @@ public abstract class Limb : MonoBehaviour
     public int stage { get; set; }
     public int xps { get; set; }
     public abstract int[] xpThresholds { get; }
-
     public abstract int[] stagesWeight { get; }
-
-
     public void AddXP(int addedXP)
     {
         xps += addedXP;
@@ -44,4 +41,15 @@ public abstract class Limb : MonoBehaviour
     }
 
     public abstract void LevelUp();
+}
+
+
+public enum LimbClass
+{
+    Heart,
+    Lung,
+    Eye,
+    Mouth,
+    Hand,
+    Leg
 }

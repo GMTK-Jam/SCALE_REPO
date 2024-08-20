@@ -26,6 +26,8 @@ public class Blob : MonoBehaviour
     private int randomIndex;
     public bool changeSort = true;
 
+    public LimbClass limbMaster;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -118,16 +120,21 @@ public class Blob : MonoBehaviour
         }
     }
 
-    public void UpdateSize()
+    public void EnemyHit()
     {
-        // Implement size update logic here
+        if (dormant)
+        {
+            return;
+        }
+        // Implement blob damage animation (go red)
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         Player.Instance.Collide(collision.gameObject);
         Debug.Log("collided");
-    }
+    }*/
 
 #if UNITY_EDITOR
     void OnDrawGizmos()

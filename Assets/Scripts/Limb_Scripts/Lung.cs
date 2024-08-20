@@ -80,7 +80,7 @@ public class Lung : Limb
 
             StartCoroutine(BloatBody());
             StartCoroutine(BloatLung());
-            StartCoroutine(Player.Instance.UpdateSprint(sprintTimeStages[stage], recoveryTimeStages[stage]));
+            StartCoroutine(Player.Instance.UpgradeMaxSprint(sprintTimeStages[stage], recoveryTimeStages[stage]));
         //    Player.Instance.sprintLength = sprintTimeStages[stage];
         //    Player.Instance.recoveryLength = recoveryTimeStages[stage];
 

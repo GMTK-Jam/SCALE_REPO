@@ -139,7 +139,7 @@ public class Enemy : MonoBehaviour
     private void DamagePlayer(Player player)
     {
         Debug.Log("Enemy.DamagePlayer: Player was damaged by " + gameObject.name);
-        player.TakeDamage(_collisionDamage);
+        player.SubtractHealth(_collisionDamage);
     }
 
     public void TakeDamage(int damage)

@@ -49,9 +49,19 @@ public class Enemy_Arm : BaseEnemy
 
     IEnumerator Dash()
     {
+        StartDash();
+        yield return new WaitForSeconds(1f);
+        EndDash();
+    }
+
+    private void StartDash()
+    {
         isDashing = true;
         aiPath.maxSpeed = baseMaxSpeed * 3;
-        yield return new WaitForSeconds(1f);
+    }
+
+    private void EndDash()
+    {
         aiPath.maxSpeed = baseMaxSpeed;
         isDashing = false;
     }

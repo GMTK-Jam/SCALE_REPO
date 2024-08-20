@@ -20,7 +20,6 @@ public class CustomEventListener : MonoBehaviour
 
     public void OnEventRaised()
     {
-        
         Response.Invoke();
         Debug.Log("Received event: "+Event.name);
 
@@ -31,4 +30,3 @@ public class CustomEventListener : MonoBehaviour
     
     }
 }        
-

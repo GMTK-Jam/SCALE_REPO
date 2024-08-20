@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "CustomEvent")]
 public class CustomEvent : ScriptableObject
 {
-    private List<CustomEventListener> listeners = new List<CustomEventListener>();
+    protected List<CustomEventListener> listeners = new List<CustomEventListener>();
     public bool debug = true;
 
     public void RegisterListener(CustomEventListener client)
@@ -28,5 +28,32 @@ public class CustomEvent : ScriptableObject
         {
             listener.OnEventRaised();
         }
+    }
+}
+
+
+[CreateAssetMenu(menuName = "DamageEvent")]
+public class CustomDamageEvent : CustomEvent
+{
+    public void Raise(DamageInfo info)
+    {
+        foreach (CustomEventListener listener in listeners)
+        {
+            listener.OnEventRaised();
+        }
+    }
+}
+
+public class DamageInfo
+{
+    public float damage;
+    public EnemyClass enemyClass;
+    public LimbClass limbClass;
+
+    public DamageInfo(float damage, EnemyClass enemyClass, LimbClass limbClass)
+    {
+        this.damage = damage;
+        this.enemyClass = enemyClass;
+        this.limbClass = limbClass;
     }
 }

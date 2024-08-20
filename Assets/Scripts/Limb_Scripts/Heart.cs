@@ -78,7 +78,7 @@ public class Heart : Limb
 
             StartCoroutine(BloatBody());
             StartCoroutine(BloatHeart());
-            StartCoroutine(Player.Instance.UpdateHealth(hpStages[stage], hpIncStages[stage]));
+            StartCoroutine(Player.Instance.UpgradeMaxHealth(hpStages[stage], hpIncStages[stage]));
 
         }
     }
