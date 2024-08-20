@@ -23,6 +23,7 @@ public class Enemy_Ranged : BaseEnemy
     public override void PerformedAttack()
     {
         base.PerformedAttack();
+        Debug.Log("Range attacking");
         Projectile projectile = Instantiate(bullet.gameObject,transform.position,Quaternion.identity).GetComponent<Projectile>();
         projectile.source = this;
         projectile.target = playerTarget;

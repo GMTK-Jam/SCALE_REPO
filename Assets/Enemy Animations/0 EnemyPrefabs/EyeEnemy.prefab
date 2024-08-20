@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6702270460713909893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7109655089472654735}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7109655089472654735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702270460713909893}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 65.49797, y: 31.434105, z: -0.49291292}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8773243032866425526}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8773243032866425527
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,7 +66,8 @@ Transform:
   m_LocalPosition: {x: -121.5, y: -9.2, z: -0.26641652}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7109655089472654735}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -135,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee2b36f358051045b0acc698f2b7a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyClass: 0
+  enemyClass: 5
   baseHealth: 15
   baseDamage: 0
   baseMaxSpeed: 10
@@ -147,6 +179,7 @@ MonoBehaviour:
   isRangedAttacker: 1
   deathStainTime: 1
   damageFreezeTime: 0.2
+  exp: {fileID: 5429348461832209578, guid: bdafca62d6a9aae4e8caecf82aac7547, type: 3}
   DamageColliders: []
   damageContactFilter:
     useTriggers: 0
@@ -163,7 +196,7 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   playerDamagedEvent: {fileID: 11400000, guid: b5231e2fa82095e44a4adbb2d9a5bb04, type: 2}
-  bullet: {fileID: 8432132894247168847, guid: 1dd5899b205cac04bbf8a354da84a126, type: 3}
+  bullet: {fileID: 7015744364238824537, guid: 1dd5899b205cac04bbf8a354da84a126, type: 3}
   bulletSpeed: 10
 --- !u!95 &1168919971865466259
 Animator:

@@ -79,7 +79,7 @@ public class EnemyAnimator : MonoBehaviour
     }
 
     // Called by animation controller as it reaches hitting frames
-    public void PerformedAttack()
+    public void PerformedAttackAnimation()
     {
         if (currState != EnemyAnimationState.Attack)
         {

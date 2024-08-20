@@ -21,6 +21,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("projectile created");
         _renderer = GetComponent<SpriteRenderer>();
         if (target != null)
         {

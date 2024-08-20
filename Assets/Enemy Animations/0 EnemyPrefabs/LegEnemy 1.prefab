@@ -206,6 +206,7 @@ MonoBehaviour:
   isRangedAttacker: 0
   deathStainTime: 2
   damageFreezeTime: 1
+  exp: {fileID: 5429348461832209578, guid: ab7d2385cb369fa4497d9902fbeec91c, type: 3}
   DamageColliders:
   - {fileID: 0}
   damageContactFilter:
