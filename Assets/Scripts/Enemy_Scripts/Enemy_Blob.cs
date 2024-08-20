@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Eye : BaseEnemy
+public class Enemy_Blob : BaseEnemy
 {
     protected override void Start()
     {
@@ -16,6 +16,12 @@ public class Enemy_Eye : BaseEnemy
 
     protected override void PerformSkill()
     {
+    }
+
+    protected override void PerformedAttack()
+    {
+        base.PerformedAttack();
+        StartCoroutine(DeathSequence());
     }
 
 }
