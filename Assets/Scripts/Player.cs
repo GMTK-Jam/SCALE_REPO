@@ -63,6 +63,11 @@ public class Player : MonoBehaviour
     public Slider sprintSlider;
     #endregion
 
+
+    public AudioClip xpClip;
+    public AudioClip hurtClip;
+
+
     /*    private Dictionary<GameObject, float> _lastDamageTimeByEnemy = new Dictionary<GameObject, float>();
 */
 
@@ -124,7 +129,7 @@ public class Player : MonoBehaviour
         }
 
         // Check for sprint input
-        if (Input.GetKey(KeyCode.LeftShift) && sprintTimer > 0)
+        if (Input.GetKey(KeyCode.Mouse0) && sprintTimer > 0)
         {
             isSprinting = true;
             sprintTimer -= Time.deltaTime;
@@ -214,6 +219,8 @@ public class Player : MonoBehaviour
         healthInt -= damageTaken;
         healthInt = Mathf.Clamp(healthInt, 0, healthMaxInt);
         healthSlider.value = (float)healthInt / healthMaxInt;
+        GetComponent<AudioSource>().PlayOneShot(hurtClip);
+
     }
 
     public void EvaluateDamageQueue()
@@ -254,6 +261,7 @@ public class Player : MonoBehaviour
         {
             lung.AddXP(xpCount);
         }
+        GetComponent<AudioSource>().PlayOneShot(xpClip);
     }
 
     public IEnumerator UpgradeMaxHealth(int newHealthInt, float newSecondsCount)

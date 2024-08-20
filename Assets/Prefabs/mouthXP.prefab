@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1500719006534030533}
   - component: {fileID: 4537481635261412375}
   - component: {fileID: 7278843099620892698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: mouthXP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3074164883155866555}
   - component: {fileID: 1689238940390894129}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

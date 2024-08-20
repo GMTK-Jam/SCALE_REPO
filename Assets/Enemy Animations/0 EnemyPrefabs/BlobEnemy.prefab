@@ -226,7 +226,7 @@ MonoBehaviour:
   baseDamage: 5
   baseMaxSpeed: 10
   baseStoppingDistance: 1
-  baseAttackDistance: 1
+  baseAttackDistance: 36.19
   baseAttackInterval: 1
   spawnWave: 0
   skills: []
@@ -234,7 +234,8 @@ MonoBehaviour:
   deathStainTime: 2
   damageFreezeTime: 0
   exp: {fileID: 0}
-  DamageColliders: []
+  DamageColliders:
+  - {fileID: 4964263332354430029}
   damageContactFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -263,9 +264,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1735096, y: 0.9542959}
+  m_Offset: {x: -0.14064977, y: 0.954297}
   serializedVersion: 2
-  m_Radius: 6.4744763
+  m_Radius: 12.4214525
 --- !u!114 &8837020742528461338
 MonoBehaviour:
   m_ObjectHideFlags: 0

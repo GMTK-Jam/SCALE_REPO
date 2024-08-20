@@ -221,9 +221,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0471593, y: -0.11085233}
+  m_Offset: {x: 0.09828429, y: -0.11085233}
   serializedVersion: 2
-  m_Radius: 6.189244
+  m_Radius: 12.539403
 --- !u!114 &363706717795659442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   baseDamage: 5
   baseMaxSpeed: 12
   baseStoppingDistance: 1.5
-  baseAttackDistance: 1.5
+  baseAttackDistance: 24.95
   baseAttackInterval: 1
   spawnWave: 0
   skills: []
@@ -249,7 +249,8 @@ MonoBehaviour:
   deathStainTime: 2
   damageFreezeTime: 0
   exp: {fileID: 5429348461832209578, guid: c990913592c2ecd4a9da748ca31d7db0, type: 3}
-  DamageColliders: []
+  DamageColliders:
+  - {fileID: 1994354486042230045}
   damageContactFilter:
     useTriggers: 0
     useLayerMask: 1

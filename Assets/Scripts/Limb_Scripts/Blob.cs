@@ -80,25 +80,50 @@ public class Blob : MonoBehaviour
 
     public void EnterDamageFrame()
     {
+        Debug.Log("enterdamageframe");
+
         if (inDamageFrame)
         {
             return;
         }
-        StartCoroutine(SwitchDamageFrame());
+        StartCoroutine(SwitchDamageColor());
+        // StartCoroutine(SwitchDamageFrame());
         // Play sound
     }
-
-    
-
-    private IEnumerator SwitchDamageFrame()
+    private IEnumerator SwitchDamageColor()
     {
-        inDamageFrame = true;
-        Sprite sprite = spriteRenderer.sprite;
-        spriteRenderer.sprite = damageSprite;
-        yield return new WaitForSeconds(damageFrameTime);
-        spriteRenderer.sprite = sprite;
-        inDamageFrame = false;
+        Color targetColor = new Color(255f / 255f, 171f / 255f, 163f / 255f);
+
+        // Smoothly change the color to red over 0.1 seconds
+        for (float t = 0; t < 1; t += Time.deltaTime / 0.1f)
+        {
+            spriteRenderer.color = Color.Lerp(Color.white, targetColor, t);
+            yield return null;
+        }
+        spriteRenderer.color = targetColor;
+
+        // Wait for 0.1 seconds
+        yield return new WaitForSeconds(0.1f);
+
+        // Smoothly change the color back to the original over 0.1 seconds
+        for (float t = 0; t < 1; t += Time.deltaTime / 0.1f)
+        {
+            spriteRenderer.color = Color.Lerp(targetColor, Color.white, t);
+            yield return null;
+        }
+        spriteRenderer.color = Color.white;
     }
+
+
+    /*   private IEnumerator SwitchDamageFrame()
+       {
+           inDamageFrame = true;
+           Sprite sprite = spriteRenderer.sprite;
+           spriteRenderer.sprite = damageSprite;
+           yield return new WaitForSeconds(damageFrameTime);
+           spriteRenderer.sprite = sprite;
+           inDamageFrame = false;
+       } */
 
     int CountObjectsWithLayer(string layerName)
     {
@@ -156,21 +181,18 @@ public class Blob : MonoBehaviour
         }
     }
 
-    public void EnemyHit()
+    public void EnemyHit(int damageCount)
     {
-        if (dormant)
-        {
-            return;
-        }
+        //if (dormant)
+        // {
+        //    return;
+        //}
         // Implement blob damage animation (go red)
+        Debug.Log("enemyhit " + damageCount.ToString());
+        Player.Instance.healthInt -= damageCount;
     }
 
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Player.Instance.Collide(collision.gameObject);
-        Debug.Log("collided");
-    }*/
 
 #if UNITY_EDITOR
     void OnDrawGizmos()

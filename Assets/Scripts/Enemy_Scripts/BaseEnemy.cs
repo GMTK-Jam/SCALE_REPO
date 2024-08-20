@@ -15,7 +15,7 @@ public abstract class BaseEnemy : MonoBehaviour
     //[Header("最低移速")]
     //public float baseMinSpeed;
     [Header("攻击数值")]
-    public float baseDamage;
+    public int baseDamage;
     [Header("最大移速")]
     public float baseMaxSpeed;
     [Header("与目标保持距离")]
@@ -120,11 +120,12 @@ public abstract class BaseEnemy : MonoBehaviour
     // Attack animation reached hitting frames, check for collision, reset timer;
     public virtual void PerformedAttack()
     {
+        Debug.Log(gameObject.name + " performedattack");
         attackTimer = baseAttackInterval;
         Blob damagedBlob = EvaluateAttackCollision();
         if (damagedBlob != null)
         {
-            damagedBlob.EnemyHit();
+            damagedBlob.EnemyHit(baseDamage);
             LimbClass damagedLimb = damagedBlob.limbMaster;
             RaiseDamageEvent(damagedLimb);
         }
@@ -144,9 +145,12 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             List<Collider2D> results = new List<Collider2D>();
             int overlaps = collider.OverlapCollider(damageContactFilter, results);
-
+            Debug.Log("checkingoverlap");
             if (overlaps > 0)
             {
+                Debug.Log("Overlap");
+                Player.Instance.SubtractHealth(baseDamage);
+                Debug.Log("Player Damage " + baseDamage);
                 foreach (Collider2D blobCollider in results)
                 {
                     blobCollider.GetComponent<Blob>().EnterDamageFrame();
@@ -164,6 +168,7 @@ public abstract class BaseEnemy : MonoBehaviour
         DamageInfo damageInfo = new DamageInfo(baseDamage, enemyClass, damagedLimb);
         playerDamagedEvent.Raise(damageInfo);
         Debug.Log("[DAMAGE] Player took " + baseDamage + " damage");
+        Player.Instance.SubtractHealth(baseDamage);
     }
 
 
@@ -204,6 +209,7 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         _enemyAnimator.TakeDamage();
         Debug.Log("[DAMAGE] "+enemyClass.ToString() + " took " + damage + " damage");
+
         baseHealth -= damage;
         if (baseHealth <= 0)
         {
@@ -218,6 +224,7 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected IEnumerator DeathSequence()
     {
+        GetComponent<AudioSource>().Play();
         aiPath.maxSpeed = 0;
         _enemyAnimator.StartDeathAnimation();
         yield return new WaitForSeconds(deathStainTime);

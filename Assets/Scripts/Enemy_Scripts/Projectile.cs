@@ -54,6 +54,7 @@ public class Projectile : MonoBehaviour
         {
             Blob damagedBlob = other.GetComponent<Blob>();
             source.ProjectileHit(damagedBlob.limbMaster);
+            GetComponent<CircleCollider2D>().enabled = false;
             StartCoroutine(Explode());
         }
         else

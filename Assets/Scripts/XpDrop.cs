@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class XpDrop : MonoBehaviour
 {
-    private int _xp = 10;
+    private int _xp = 20;
     private bool _moving = false;
     public string xpType;
 
@@ -45,9 +45,11 @@ public class XpDrop : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("triggeredname:" + other.gameObject.name);
+
         if (other.gameObject.name.Contains("Blob"))
         {
+            Debug.Log("attemptaddxp:" + gameObject.name);
+            
             Player.Instance.AddXP(xpType, _xp);
 
             Destroy(gameObject);

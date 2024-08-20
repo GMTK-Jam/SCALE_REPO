@@ -166,10 +166,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.1730278, y: -1.9457359}
+  m_Offset: {x: -2.173028, y: -17.238407}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -180,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.836456, y: 39.655342}
+  m_Size: {x: 10.836456, y: 39.14274}
   m_EdgeRadius: 0
 --- !u!114 &5150658348653544024
 MonoBehaviour:
@@ -198,8 +198,8 @@ MonoBehaviour:
   baseHealth: 15
   baseDamage: 15
   baseMaxSpeed: 10
-  baseStoppingDistance: 5
-  baseAttackDistance: 5
+  baseStoppingDistance: 0
+  baseAttackDistance: 29.59
   baseAttackInterval: 2
   spawnWave: 0
   skills: []
@@ -208,7 +208,7 @@ MonoBehaviour:
   damageFreezeTime: 1
   exp: {fileID: 5429348461832209578, guid: ab7d2385cb369fa4497d9902fbeec91c, type: 3}
   DamageColliders:
-  - {fileID: 0}
+  - {fileID: 6936396586725339526}
   damageContactFilter:
     useTriggers: 0
     useLayerMask: 1
@@ -256,7 +256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7662437502687228573}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -16.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

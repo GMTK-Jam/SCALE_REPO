@@ -49,6 +49,7 @@ public class Arm : Limb
     {
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(1).gameObject.SetActive(true);
+        GetComponent<AudioSource>().Play();
 
     }
 
