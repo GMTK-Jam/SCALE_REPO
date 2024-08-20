@@ -17517,6 +17517,8 @@ MonoBehaviour:
   sprintLength: 5
   recoveryLength: 10
   sprintSlider: {fileID: 1202967678}
+  xpClip: {fileID: 0}
+  hurtClip: {fileID: 0}
 --- !u!82 &1553126632
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18883,7 +18885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8773243032866425527, guid: a0aa4875728c76a48acc910a632c195a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0aa4875728c76a48acc910a632c195a, type: 3}
@@ -23841,7 +23843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1949384051610033537, guid: 3711ac659843e2e4783fb22e9a5b3d02, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3711ac659843e2e4783fb22e9a5b3d02, type: 3}
