@@ -20,6 +20,7 @@ public class Enemy_Blob : BaseEnemy
 
     public override void PerformedAttack()
     {
+        Debug.Log("Blobperformed");
         base.PerformedAttack();
         StartCoroutine(DeathSequence());
     }
